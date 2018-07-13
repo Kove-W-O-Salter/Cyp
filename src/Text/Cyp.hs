@@ -12,6 +12,11 @@ module Text.Cyp where
         import Data.Cyp
 
         --
+        -- For access to all character `Parser`s.
+        --
+        import Text.Cyp.Char
+
+        --
         -- Run the `Parser` p on the input `Stream` stream0.
         --
         parseCyp           :: Parser a -> Stream -> Maybe a
