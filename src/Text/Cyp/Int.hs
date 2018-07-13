@@ -25,35 +25,35 @@ module Text.Cyp.Int where
         -- Match an `Int`.
         --
         matchInt :: Parser Int
-        matchInt  = do ds <- digits
+        matchInt  = do ds <- matchDigits
                        return (read ds)
 
         --
         -- Match an `Int8`.
         --
         matchInt8 :: Parser Int8
-        matchInt8  = do ds <- digits
+        matchInt8  = do ds <- matchDigits
                         return (read ds)
 
         --
         -- Match an `Int16`.
         --
         matchInt16 :: Parser Int16
-        matchInt16  = do ds <- digits
+        matchInt16  = do ds <- matchDigits
                          return (read ds)
 
         --
         -- Match an `Int32`.
         --
         matchInt32 :: Parser Int32
-        matchInt32  = do ds <- digits
+        matchInt32  = do ds <- matchDigits
                          return (read ds)
 
         --
         -- Match an `Int64`.
         --
         matchInt64 :: Parser Int64
-        matchInt64  = do ds <- digits
+        matchInt64  = do ds <- matchDigits
                          return (read ds)
 
         --
