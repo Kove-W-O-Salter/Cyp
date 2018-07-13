@@ -147,7 +147,7 @@ module Text.Cyp.String where
         -- Match a `String`, of a length >= 0, of letter `Char`s.
         --
         matchLetters :: Parser String
-        matchLetters
+        matchLetters  = many matchLetter
 
         --
         -- Match a `String`, of a length >= 1, of letter `Char`s.
