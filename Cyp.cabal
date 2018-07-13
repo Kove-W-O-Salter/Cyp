@@ -51,7 +51,7 @@ cabal-version:       >=1.10
 
 library
   -- Modules exported by the library.
-  exposed-modules:     Data.Cyp, Data.Cyp.Functor, Data.Cyp.Applicative, Data.Cyp.Monad
+  exposed-modules:     Data.Cyp
   
   -- Modules included in this library but not exported.
   -- other-modules:       
