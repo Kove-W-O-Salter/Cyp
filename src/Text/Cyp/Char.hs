@@ -25,7 +25,7 @@ module Text.Cyp.Char where
                         []       -> Nothing
                         (x : xs) ->
                                 if p x
-                                        then Just x
+                                        then Just (x, xs)
                                         else Nothing)
 
         --
