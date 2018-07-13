@@ -44,10 +44,10 @@ module Text.Cyp where
         -- Match zero of more occurences of the `Parser` p, returning the concatenation of each result.
         --
         manyOf   :: Parser a -> Parser [a]
-        manyOf p  = p >>! someOf p
+        manyOf p  = someOf p >>! return []
 
         --
         -- Match one of more occurences of the `Parser` p, returning the concatenation of each result.
         --
         someOf   :: Parser a -> Parser [a]
-        someOf p  = pure (:) p <*> manyOf p
+        someOf p  = pure (:) <*> p <*> manyOf p
