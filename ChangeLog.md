@@ -105,3 +105,8 @@ What's new:
 * Add `Text.Cyp.Int.matchLitInt16`
 * Add `Text.Cyp.Int.matchLitInt32`
 * Add `Text.Cyp.Int.matchLitInt64`
+
+## 0.1.0.6  -- 2018-July-14th
+### Seventh development version.
+What's new:
+* Add `Text.Cyp.Int.matchIntegral`
