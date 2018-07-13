@@ -1,9 +1,9 @@
 # Revision history for Cyp
 
-## 0.1.0.0  -- 2018-June-13th
+## 0.1.0.0  -- 2018-July-13th
 ### First development version. Released on an unsuspecting world.
 
-## 0.1.0.1  -- 2018-June-13th
+## 0.1.0.1  -- 2018-July-13th
 ### Seccond development version.
 What's new:
 * Add `Text.Cyp.parseCyp`
@@ -11,7 +11,7 @@ What's new:
 * Add `Text.Cyp.manyOf`
 * Add `Text.Cyp.someOf`
 
-## 0.1.0.2  -- 2018-June-13th
+## 0.1.0.2  -- 2018-July-13th
 ### Third development version.
 What's new:
 * Add `Text.Cyp.Char`
@@ -38,7 +38,7 @@ What's new:
 * Add `Text.Cyp.Char.matchAsciiLower`
 * Add `Text.Cyp.Char.matchChar`
 
-## 0.1.0.3  -- 2018-June-13th
+## 0.1.0.3  -- 2018-July-13th
 ### Fourth development version.
 What's new:
 * Instance `Data.Cyp.Parser` of `Control.Applicative.Alternative`
@@ -46,7 +46,7 @@ What's new:
 * Modify `Text.Cyp.manyOf` to be the same as `Data.Cyp.many`
 * Modify `Text.Cyp.someOf` to be the same as `Data.Cyp.some`
 
-## 0.1.0.4  -- 2018-June-13th
+## 0.1.0.4  -- 2018-July-13th
 ### Fift development version.
 What's new:
 * Add `Text.Cyp.String`
@@ -90,7 +90,7 @@ What's new:
 * Add `Text.Cyp.String.matchAsciiLowers`
 * Add `Text.Cyp.String.matchAsciiLowers1`
 
-## 0.1.0.5  -- 2018-June-14th
+## 0.1.0.5  -- 2018-July-14th
 ### Sixth development version.
 What's new:
 * Add `Test.Cyp.Int`
