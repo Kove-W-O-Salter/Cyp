@@ -22,6 +22,13 @@ module Text.Cyp.Int where
         import Text.Cyp.String
 
         --
+        -- Match a member of the `Integral` class.
+        --
+        matchIntegral :: Integral a => Parser a
+        matchIntegral  = do ds <- matchDigits
+                            return (read ds)
+
+        --
         -- Match an `Int`.
         --
         matchInt :: Parser Int
