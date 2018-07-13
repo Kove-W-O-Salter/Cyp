@@ -24,7 +24,7 @@ module Text.Cyp.Int where
         --
         -- Match a member of the `Integral` class.
         --
-        matchIntegral :: Integral a => Parser a
+        matchIntegral :: (Integral a, Read a) => Parser a
         matchIntegral  = do ds <- matchDigits
                             return (read ds)
 
