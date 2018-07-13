@@ -89,3 +89,19 @@ What's new:
 * Add `Text.Cyp.String.matchAsciiUppers1`
 * Add `Text.Cyp.String.matchAsciiLowers`
 * Add `Text.Cyp.String.matchAsciiLowers1`
+
+## 0.1.0.5  -- 2018-June-14th
+### Sixth development version.
+What's new:
+* Add `Test.Cyp.Int`
+* Add `Text.Cyp.Int.matchInt`
+* Add `Text.Cyp.Int.matchInt8`
+* Add `Text.Cyp.Int.matchInt16`
+* Add `Text.Cyp.Int.matchInt32`
+* Add `Text.Cyp.Int.matchInt64`
+* Add `Text.Cyp.Int.matchLitIntegral`
+* Add `Text.Cyp.Int.matchLitInt`
+* Add `Text.Cyp.Int.matchLitInt8`
+* Add `Text.Cyp.Int.matchLitInt16`
+* Add `Text.Cyp.Int.matchLitInt32`
+* Add `Text.Cyp.Int.matchLitInt64`
