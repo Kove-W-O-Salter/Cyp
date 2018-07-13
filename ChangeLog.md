@@ -45,3 +45,47 @@ What's new:
 * Modify `Text.Cyp.(>>!)` to be the same as `Data.Cyp.(<|>)`
 * Modify `Text.Cyp.manyOf` to be the same as `Data.Cyp.many`
 * Modify `Text.Cyp.someOf` to be the same as `Data.Cyp.some`
+
+## 0.1.0.4  -- 2018-June-13th
+### Fift development version.
+What's new:
+* Add `Text.Cyp.String`
+* Add `Text.Cyp.String.matchString`
+* Add `Text.Cyp.String.matchControls`
+* Add `Text.Cyp.String.matchControls1`
+* Add `Text.Cyp.String.matchSpaces`
+* Add `Text.Cyp.String.matchSpaces1`
+* Add `Text.Cyp.String.matchLowers`
+* Add `Text.Cyp.String.matchLowers1`
+* Add `Text.Cyp.String.matchUppers`
+* Add `Text.Cyp.String.matchUppers1`
+* Add `Text.Cyp.String.matchAlphas`
+* Add `Text.Cyp.String.matchAlphas1`
+* Add `Text.Cyp.String.matchAlphaNums`
+* Add `Text.Cyp.String.matchAlphaNums1`
+* Add `Text.Cyp.String.matchPrints`
+* Add `Text.Cyp.String.matchPrints1`
+* Add `Text.Cyp.String.matchDigits`
+* Add `Text.Cyp.String.matchDigits1`
+* Add `Text.Cyp.String.matchOctDigits`
+* Add `Text.Cyp.String.matchOctDigits1`
+* Add `Text.Cyp.String.matchHexDigits`
+* Add `Text.Cyp.String.matchHexDigits1`
+* Add `Text.Cyp.String.matchLetters`
+* Add `Text.Cyp.String.matchLetters1`
+* Add `Text.Cyp.String.matchMarks`
+* Add `Text.Cyp.String.matchMarks1`
+* Add `Text.Cyp.String.matchPunctuations`
+* Add `Text.Cyp.String.matchPunctuations1`
+* Add `Text.Cyp.String.matchSymbols`
+* Add `Text.Cyp.String.matchSymbols1`
+* Add `Text.Cyp.String.matchSeparators`
+* Add `Text.Cyp.String.matchSeparators1`
+* Add `Text.Cyp.String.matchAsciis`
+* Add `Text.Cyp.String.matchAsciis1`
+* Add `Text.Cyp.String.matchLatin1s`
+* Add `Text.Cyp.String.matchLatin1s1`
+* Add `Text.Cyp.String.matchAsciiUppers`
+* Add `Text.Cyp.String.matchAsciiUppers1`
+* Add `Text.Cyp.String.matchAsciiLowers`
+* Add `Text.Cyp.String.matchAsciiLowers1`
