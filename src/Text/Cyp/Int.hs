@@ -59,7 +59,7 @@ module Text.Cyp.Int where
         --
         -- Match the member of the `Integral` class, i.
         --
-        matchLitIntegral   :: Integral a => a -> Parser a
+        matchLitIntegral   :: (Integral a, Read a, Show a) => a -> Parser a
         matchLitIntegral i  = do ds <- matchString (show i)
                                  return (read ds)
 
