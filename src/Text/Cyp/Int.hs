@@ -33,40 +33,30 @@ module Text.Cyp.Int where
         --
         matchInt :: Parser Int
         matchInt  = matchIntegral
---        matchInt  = do ds <- matchDigits
---                       return (read ds)
 
         --
         -- Match an `Int8`.
         --
         matchInt8 :: Parser Int8
         matchInt8  = matchIntegral
---        matchInt8  = do ds <- matchDigits
---                        return (read ds)
 
         --
         -- Match an `Int16`.
         --
         matchInt16 :: Parser Int16
         matchInt16  = matchIntegral
---        matchInt16  = do ds <- matchDigits
---                         return (read ds)
 
         --
         -- Match an `Int32`.
         --
         matchInt32 :: Parser Int32
         matchInt32  = matchIntegral
---        matchInt32  = do ds <- matchDigits
---                         return (read ds)
 
         --
         -- Match an `Int64`.
         --
         matchInt64 :: Parser Int64
         matchInt64  = matchIntegral
---        matchInt64  = do ds <- matchDigits
---                         return (read ds)
 
         --
         -- Match the member of the `Integral` class, i.
