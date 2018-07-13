@@ -110,3 +110,13 @@ What's new:
 ### Seventh development version.
 What's new:
 * Add `Text.Cyp.Int.matchIntegral`
+
+## 0.1.0.7  -- 2018-July-14th
+### Eighth development version.
+What's new:
+* Redefine `Text.Cyp.Int.matchInt` to be equal to `Text.Cyp.Int.matchIntegral`
+* Redefine `Text.Cyp.Int.matchInt8` to be equal to `Text.Cyp.Int.matchIntegral`
+* Redefine `Text.Cyp.Int.matchInt16` to be equal to `Text.Cyp.Int.matchIntegral`
+* Redefine `Text.Cyp.Int.matchInt32` to be equal to `Text.Cyp.Int.matchIntegral`
+* Redefine `Text.Cyp.Int.matchInt64` to be equal to `Text.Cyp.Int.matchIntegral`
+
