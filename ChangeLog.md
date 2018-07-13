@@ -12,7 +12,7 @@ What's new:
 * Add `Text.Cyp.someOf`
 
 ## 0.1.0.2  -- 2018-June-13th
-### Seccond development version.
+### Third development version.
 What's new:
 * Add `Text.Cyp.Char`
 * Add `Text.Cyp.Char.matchPred`
