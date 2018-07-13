@@ -17,6 +17,11 @@ module Text.Cyp where
         import Text.Cyp.Char
 
         --
+        -- For access to all `Int` `Parser`s.
+        --
+        import Text.Cyp.Int
+
+        --
         -- For access to all `String` `Parser`s.
         --
         import Text.Cyp.String
