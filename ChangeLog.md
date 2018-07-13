@@ -37,3 +37,11 @@ What's new:
 * Add `Text.Cyp.Char.matchAsciiUpper`
 * Add `Text.Cyp.Char.matchAsciiLower`
 * Add `Text.Cyp.Char.matchChar`
+
+## 0.1.0.3  -- 2018-June-13th
+### Fourth development version.
+What's new:
+* Instance `Data.Cyp.Parser` of `Control.Applicative.Alternative`
+* Modify `Text.Cyp.(>>!)` to be the same as `Data.Cyp.(<|>)`
+* Modify `Text.Cyp.manyOf` to be the same as `Data.Cyp.many`
+* Modify `Text.Cyp.someOf` to be the same as `Data.Cyp.some`
