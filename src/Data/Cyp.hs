@@ -7,6 +7,11 @@
 
 module Data.Cyp where
         --
+        -- For the `Alternative` type.
+        --
+        import Control.Applicative
+
+        --
         -- The type of `Stream` that this Cyp will accept (A `String`).
         --
         type Stream = String
@@ -54,6 +59,36 @@ module Data.Cyp where
                 pf <*> px = pf >>= \f ->
                         px >>= \x ->
                                 return $ f x
+
+        --
+        -- Making the `Parser` type an `Alternative` so that we can: match more than one `Parser` and
+        -- choose between alternate `Parser`s.
+        --
+        instance Alternative Parser where
+                --
+                -- empty :: Parser a
+                --
+                empty = Parser (\stream0 ->
+                        Nothing)
+
+                --
+                -- (<|>) :: Parser a -> Parser a -> Parser a
+                --
+                x <|> y = Parser (\stream0 ->
+                        case apply x stream0 of
+                                Just    (a, stream1) -> Just (a, stream1)
+                                Nothing              ->
+                                        apply y stream0)
+
+                --
+                -- some :: Parser a -> Parser [a]
+                --
+                some p = pure (:) <*> p <*> many p
+
+                --
+                -- many :: Parser a -> Parser [a]
+                --
+                many p = some p <|> pure []
 
         --
         -- Remove the `Parser` p's dummy constructor.

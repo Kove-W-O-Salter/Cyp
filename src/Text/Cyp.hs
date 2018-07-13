@@ -17,6 +17,11 @@ module Text.Cyp where
         import Text.Cyp.Char
 
         --
+        -- For the `Alternative` type.
+        --
+        import Control.Applicative
+
+        --
         -- Run the `Parser` p on the input `Stream` stream0.
         --
         parseCyp           :: Parser a -> Stream -> Maybe a
@@ -39,20 +44,16 @@ module Text.Cyp where
         -- Run the `Parser` q if, and only if, the `Parser` p fails.
         --
         (>>!) :: Parser a -> Parser a -> Parser a
-        p >>! q = Parser (\stream0 ->
-                case apply p stream0 of
-                        Just    (x, stream1) -> Just (x, stream1)
-                        Nothing              ->
-                                apply q stream0)
+        (>>!)  = (<|>)
 
         --
         -- Match zero of more occurences of the `Parser` p, returning the concatenation of each result.
         --
         manyOf   :: Parser a -> Parser [a]
-        manyOf p  = someOf p >>! return []
+        manyOf    = many
 
         --
         -- Match one of more occurences of the `Parser` p, returning the concatenation of each result.
         --
         someOf   :: Parser a -> Parser [a]
-        someOf p  = pure (:) <*> p <*> manyOf p
+        someOf    = some
