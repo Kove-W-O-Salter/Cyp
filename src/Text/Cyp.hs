@@ -37,7 +37,7 @@ module Text.Cyp where
         import Text.Cyp.Combinators
 
         --
-        -- For the `Alternative` type.
+        -- For the `Alternative` classes functions.
         --
         import Control.Applicative
 

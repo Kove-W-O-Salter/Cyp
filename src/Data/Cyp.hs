@@ -7,7 +7,7 @@
 
 module Data.Cyp where
         --
-        -- For the `Alternative` type.
+        -- For the `Alternative` class.
         --
         import Control.Applicative
 

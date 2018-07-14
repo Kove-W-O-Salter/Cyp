@@ -17,7 +17,7 @@ module Text.Cyp.String where
         import Text.Cyp.Char
 
         --
-        -- For the `Alternative` type.
+        -- For the `Alternative` classes functions.
         --
         import Control.Applicative
 
