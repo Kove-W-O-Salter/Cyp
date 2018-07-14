@@ -22,6 +22,11 @@ module Text.Cyp where
         import Text.Cyp.Int
 
         --
+        -- For access to all `Bool` `Parser`s.
+        --
+        import Text.Cyp.Bool
+
+        --
         -- For access to all `String` `Parser`s.
         --
         import Text.Cyp.String
