@@ -135,3 +135,9 @@ What's new:
 * Add `Text.Cyp.Combinators.sepBy`
 * Add `Text.Cyp.Combinators.manySepBy`
 * Add `Text.Cyp.Combinators.someSepBy`
+
+## 0.1.1.0  -- 2018-July-14th
+### Eleventh development version.
+What's new:
+* Fix issue `#1`
+* Fix issue `#2`
