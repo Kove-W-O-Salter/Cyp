@@ -120,3 +120,9 @@ What's new:
 * Redefine `Text.Cyp.Int.matchInt32` to be equal to `Text.Cyp.Int.matchIntegral`
 * Redefine `Text.Cyp.Int.matchInt64` to be equal to `Text.Cyp.Int.matchIntegral`
 
+## 0.1.0.8  -- 2018-July-14th
+### Nineth development version.
+What's new:
+* Add `Text.Cyp.Bool`
+* Add `Text.Cyp.Bool.matchBool`
+* Add `Text.Cyp.Bool.matchLitBool`
