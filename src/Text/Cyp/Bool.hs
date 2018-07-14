@@ -17,6 +17,11 @@ module Text.Cyp.Bool where
         import Data.Bool
 
         --
+        -- For `matchString`.
+        --
+        import Text.Cyp.String
+
+        --
         -- For the `Alternative` classes functions.
         --
         import Control.Applicative
