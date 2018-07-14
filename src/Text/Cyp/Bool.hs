@@ -22,7 +22,7 @@ module Text.Cyp.Bool where
         import Text.Cyp.String
 
         --
-        -- For the `Alternative` classes functions.
+        -- For the `Alternative` class' functions.
         --
         import Control.Applicative
 
