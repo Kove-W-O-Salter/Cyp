@@ -126,3 +126,12 @@ What's new:
 * Add `Text.Cyp.Bool`
 * Add `Text.Cyp.Bool.matchBool`
 * Add `Text.Cyp.Bool.matchLitBool`
+
+## 0.1.0.9  -- 2018-July-14th
+### Tenth development version.
+What's new:
+* Add `Text.Cyp.Combinators`
+* Add `Text.Cyp.Combinators.between`
+* Add `Text.Cyp.Combinators.sepBy`
+* Add `Text.Cyp.Combinators.manySepBy`
+* Add `Text.Cyp.Combinators.someSepBy`
