@@ -12,6 +12,11 @@ module Text.Cyp.Combinators where
         import Data.Cyp
 
         --
+        -- For the `Alternative` classes functions.
+        --
+        import Control.Applicative
+
+        --
         -- Match the `Parser` x between the `Parser`s x and y.
         --
         between       :: Parser a -> Parser b -> Parser c -> Parser a
