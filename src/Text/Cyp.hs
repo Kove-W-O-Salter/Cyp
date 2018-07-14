@@ -32,6 +32,11 @@ module Text.Cyp where
         import Text.Cyp.String
 
         --
+        -- For access to all `Parser` combinators.
+        --
+        import Text.Cyp.Combinators
+
+        --
         -- For the `Alternative` type.
         --
         import Control.Applicative
