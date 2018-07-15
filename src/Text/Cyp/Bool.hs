@@ -1,8 +1,8 @@
 
 --
--- Copyright (c), Kove W. Ochre-Salter, 2018.
--- This Haskell source-file is freely distributable under terms of the MIT License.
--- A copy of said License is provided in the root directory of this project (LICENSE).
+-- | Copyright (c), Kove W. Ochre-Salter, 2018.
+--   This Haskell source-file is freely distributable under terms of the MIT License.
+--   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
 module Text.Cyp.Bool where
@@ -27,7 +27,7 @@ module Text.Cyp.Bool where
         import Control.Applicative
 
         --
-        -- Match a `Bool`.
+        -- | Match a `Bool`.
         --
         matchBool :: Parser Bool
         matchBool  = do sb <- matchString "True" <|>
@@ -35,7 +35,7 @@ module Text.Cyp.Bool where
                         return (read sb)
 
         --
-        -- Match the `Bool` b.
+        -- | Match the `Bool` b.
         --
         matchLitBool   :: Bool -> Parser Bool
         matchLitBool b  = do s <- matchString (show b)

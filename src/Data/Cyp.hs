@@ -1,6 +1,6 @@
 
 --
--- Copyright (c), Kove W. Ochre-Salter, 2018.
+-- | Copyright (c), Kove W. Ochre-Salter, 2018.
 -- This Haskell source-file is freely distributable under terms of the MIT License.
 -- A copy of said License is provided in the root directory of this project (LICENSE).
 --
@@ -12,12 +12,12 @@ module Data.Cyp where
         import Control.Applicative
 
         --
-        -- The type of `Stream` that this Cyp will accept (A `String`).
+        -- | The type of `Stream` that this Cyp will accept (A `String`).
         --
         type Stream = String
 
         --
-        -- The type of a `Parser` that is a function that takes a `Stream` and returns, `Maybe`, an `a` paired a `String.
+        -- | The type of a `Parser` that is a function that takes a `Stream` and returns, `Maybe`, an `a` paired a `String.
         --
         newtype Parser a = Parser (Stream -> Maybe (a, Stream))
 
@@ -91,7 +91,7 @@ module Data.Cyp where
                 many p = some p <|> pure []
 
         --
-        -- Remove the `Parser` p's dummy constructor.
+        -- | Remove the `Parser` p's dummy constructor.
         --
         apply            :: Parser a -> Stream -> Maybe (a, Stream)
         apply (Parser f)  = f

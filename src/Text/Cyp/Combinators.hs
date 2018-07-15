@@ -1,8 +1,8 @@
 
 --
--- Copyright (c), Kove W. Ochre-Salter, 2018.
--- This Haskell source-file is freely distributable under terms of the MIT License.
--- A copy of said License is provided in the root directory of this project (LICENSE).
+-- | Copyright (c), Kove W. Ochre-Salter, 2018.
+--   This Haskell source-file is freely distributable under terms of the MIT License.
+--   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
 module Text.Cyp.Combinators where
@@ -17,7 +17,7 @@ module Text.Cyp.Combinators where
         import Control.Applicative
 
         --
-        -- Match the `Parser` x between the `Parser`s x and y.
+        -- | Match the `Parser` x between the `Parser`s x and y.
         --
         between       :: Parser a -> Parser b -> Parser c -> Parser a
         between x y z  = do y
@@ -26,7 +26,7 @@ module Text.Cyp.Combinators where
                             return a
 
         --
-        -- Match one of the `Parser` p separated by the `Parser` q.
+        -- | Match one of the `Parser` p separated by the `Parser` q.
         --
         sepBy     :: Parser a -> Parser b -> Parser a
         sepBy p q  = do x <- p
@@ -34,13 +34,13 @@ module Text.Cyp.Combinators where
                         return x
 
         --
-        -- Match zero or more of the `Parser` p separated by the `Parser` q.
+        -- | Match zero or more of the `Parser` p separated by the `Parser` q.
         --
         manySepBy     :: Parser a -> Parser b -> Parser [a]
         manySepBy p q  = many (sepBy p q)
 
         --
-        -- Match one or more of the `Parser` p separated by the `Parser` q.
+        -- | Match one or more of the `Parser` p separated by the `Parser` q.
         --
         someSepBy     :: Parser a -> Parser b -> Parser [a]
         someSepBy p q  = some (sepBy p q)

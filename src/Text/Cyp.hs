@@ -1,6 +1,6 @@
 
 --
--- Copyright (c), Kove W. Ochre-Salter, 2018.
+-- | Copyright (c), Kove W. Ochre-Salter, 2018.
 -- This Haskell source-file is freely distributable under terms of the MIT License.
 -- A copy of said License is provided in the root directory of this project (LICENSE).
 --
@@ -42,7 +42,7 @@ module Text.Cyp where
         import Control.Applicative
 
         --
-        -- Run the `Parser` p on the input `Stream` stream0.
+        -- | Run the `Parser` p on the input `Stream` stream0.
         --
         parseCyp           :: Parser a -> Stream -> Maybe a
         parseCyp p stream0  = case apply p stream0 of
@@ -50,7 +50,7 @@ module Text.Cyp where
                 Just    (x, stream1) -> Just x
 
         --
-        -- Run the `Parser` p on the input `Stream` stream0 and, additionaly, fail if their is any remaining input.
+        -- | Run the `Parser` p on the input `Stream` stream0 and, additionaly, fail if their is any remaining input.
         --
         parseCypPedantic           :: Parser a -> Stream -> Maybe a
         parseCypPedantic p stream0  = case apply p stream0 of
@@ -61,19 +61,19 @@ module Text.Cyp where
                                 else Nothing
 
         --
-        -- Run the `Parser` q if, and only if, the `Parser` p fails.
+        -- | Run the `Parser` q if, and only if, the `Parser` p fails.
         --
         (>>!) :: Parser a -> Parser a -> Parser a
         (>>!)  = (<|>)
 
         --
-        -- Match zero of more occurences of the `Parser` p, returning the concatenation of each result.
+        -- | Match zero of more occurences of the `Parser` p, returning the concatenation of each result.
         --
         manyOf   :: Parser a -> Parser [a]
         manyOf    = many
 
         --
-        -- Match one of more occurences of the `Parser` p, returning the concatenation of each result.
+        -- | Match one of more occurences of the `Parser` p, returning the concatenation of each result.
         --
         someOf   :: Parser a -> Parser [a]
         someOf    = some
