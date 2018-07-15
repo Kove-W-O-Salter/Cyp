@@ -9,7 +9,7 @@ is a work in progress.
 At the moment their is
 only basic documentation
 generated with **Haddock**.
-[Documentaion](./doc/index.html).
+[Documentaion](https://kove-w-o-salter.github.io/Cyp/index.html).
 
 ## Change Log
 [Here](./ChangeLog.md) is
