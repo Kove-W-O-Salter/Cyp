@@ -1,8 +1,8 @@
 
 --
 -- | Copyright (c), Kove W. Ochre-Salter, 2018.
--- This Haskell source-file is freely distributable under terms of the MIT License.
--- A copy of said License is provided in the root directory of this project (LICENSE).
+--   This Haskell source-file is freely distributable under terms of the MIT License.
+--   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
 module Data.Cyp where
