@@ -81,13 +81,11 @@ module Text.Cyp.String where
         matchAlphas1 :: Parser String
         matchAlphas1  = some matchAlpha
 
-
         --
         -- | Match a `String`, of a length >= 0, of alphabetic `Char`s and digit `Char`s.
         --
         matchAlphaNums :: Parser String
         matchAlphaNums  = some matchAlphaNum
-
 
         --
         -- | Match a `String`, of a length >= 1, of alphabetic `Char`s and digit `Char`s.
