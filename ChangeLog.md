@@ -160,3 +160,9 @@ What's new:
 * Add `Text.Cyp.Char.matchAnyChar`
 * Add `Text.Cyp.String.matchAnyChars`
 * Add `Text.Cyp.String.matchAnyChars1`
+
+## 0.1.1.4  -- 2018-July-16th
+### Fifteenth development version.
+What's new:
+* Update `Haddock` documentation in `docs/`
+* Fix naming of `Text.Cyp.Char.matchAnyChar`: was `matchAntChar` is now `matchAnyChar`
