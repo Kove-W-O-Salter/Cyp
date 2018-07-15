@@ -153,3 +153,10 @@ What's new:
 * Fix double newlines in `src/Text/Cyp/String.hs`
 * Fix copright header indentation in `src/Data/Cyp.hs`
 * Fix copright header indentation in `src/Text/Cyp.hs`
+
+## 0.1.1.3  -- 2018-July-16th
+### Fourteenth development version.
+What's new:
+* Add `Text.Cyp.Char.matchAnyChar`
+* Add `Text.Cyp.String.matchAnyChars`
+* Add `Text.Cyp.String.matchAnyChars1`
