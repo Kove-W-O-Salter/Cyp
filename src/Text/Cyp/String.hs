@@ -250,6 +250,18 @@ module Text.Cyp.String where
         matchAsciiLowers1  = some matchAsciiLower
 
         --
+        -- | Match a `String`, of the length >= 0, of any `Char`s.
+        --
+        matchAnyChars :: Parser String
+        matchAnyChars  = many matchAnyChar
+
+        --
+        -- | Match a `String`, of the length >= 1, of any `Char`s.
+        --
+        matchAnyChars1 :: Parser String
+        matchAnyChars1  = some matchAnyChar
+
+        --
         -- | Match the `String` s.
         --
         matchString          :: String -> Parser String
