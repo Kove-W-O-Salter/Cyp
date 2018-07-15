@@ -149,6 +149,12 @@ module Text.Cyp.Char where
         matchAsciiLower  = matchPred isAsciiLower
 
         --
+        -- | Match any `Char`.
+        --
+        matchAnyChar :: Parser Char
+        matchAntChar  = matchPred (\_ -> True)
+
+        --
         -- | Match the `Char` c.
         --
         matchChar   :: Char -> Parser Char
