@@ -152,7 +152,7 @@ module Text.Cyp.Char where
         -- | Match any `Char`.
         --
         matchAnyChar :: Parser Char
-        matchAntChar  = matchPred (\_ -> True)
+        matchAnyChar  = matchPred (\_ -> True)
 
         --
         -- | Match the `Char` c.
