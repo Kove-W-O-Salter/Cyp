@@ -157,5 +157,5 @@ module Text.Cyp.Char where
         --
         -- | Match the `Char` c.
         --
-        matchChar   :: Char -> Parser Char
-        matchChar c  = matchPred (==c)
+        matchLitChar   :: Char -> Parser Char
+        matchLitChar c  = matchPred (==c)
