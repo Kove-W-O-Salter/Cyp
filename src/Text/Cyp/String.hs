@@ -264,8 +264,8 @@ module Text.Cyp.String where
         --
         -- | Match the `String` s.
         --
-        matchString          :: String -> Parser String
-        matchString []        = return []
-        matchString (x : xs)  = do y  <- matchChar x
-                                   ys <- matchString xs
-                                   return (y : ys)
+        matchLitString          :: String -> Parser String
+        matchLitString []        = return []
+        matchLitString (x : xs)  = do y  <- matchChar x
+                                      ys <- matchString xs
+                                      return (y : ys)
