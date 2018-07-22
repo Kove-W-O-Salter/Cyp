@@ -174,3 +174,15 @@ What's new:
 * Rename `Text.Cyp.Char.matchChar` as `Text.Cyp.Char.matchLitChar`
 * Rename `Text.Cyp.Char.matchAnyChar` as `Text.Cyp.Char.matchChar`
 * Rename `Text.Cyp.String.matchString` as `Text.Cyp.String.matchLitString`
+
+## 0.1.1.6  --2018-July-22nd
+### Seventeenth development version.
+What's new:
+* Fixed the definition of `Text.Cyp.Bool.matchBool`
+* Fixed the definition of `Text.Cyp.Bool.matchLitBool`
+* Fixed the definition of `Text.Cyp.Int.matchLitIntegral`
+* Fixed the definition of `Text.Cyp.String.matchAnyChars`
+* Fixed the definition of `Text.Cyp.String.matchAnyChars1`
+* Fixed the definition of `Text.Cyp.String.matchLitString`
+* Rename `Text.Cyp.String.matchAnyChars` as `Text.Cyp.String.matchChars`
+* Rename `Text.Cyp.String.matchAnyChars1` as `Text.Cyp.String.matchChars1`
