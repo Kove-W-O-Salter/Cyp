@@ -202,3 +202,11 @@ What's new:
 What's new:
 * Make comments in `Text.Cyp.Float` usable for `Haddock`
 * Update `Haddock` documentation
+
+## 0.1.1.9  --2018-July-22nd
+### Twentieth development version.
+What's new:
+* Rename `Text.Cyp.Int` as `Text.Cyp.Integral`
+* Rename `Text.Cyp.Float` as `Text.Cyp.Fractional`
+* Import `Text.Cyp.Fractional` in `Text.Cyp`
+* Update documentation for `Text.Cyp.Fractional` and `Text.Cyp.Integral`
