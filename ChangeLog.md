@@ -185,3 +185,14 @@ What's new:
 * Fixed the definition of `Text.Cyp.String.matchLitString`
 * Rename `Text.Cyp.String.matchAnyChars` as `Text.Cyp.String.matchChars`
 * Rename `Text.Cyp.String.matchAnyChars1` as `Text.Cyp.String.matchChars1`
+
+## 0.1.1.7  --2018-July-22nd
+### Eighteenth development version.
+What's new:
+* Create `Text.Cyp.Float`
+* Create `Text.Cyp.Float.matchFractional`
+* Create `Text.Cyp.Float.matchFloat`
+* Create `Text.Cyp.Float.matchDouble`
+* Create `Text.Cyp.Float.matchLitFractional`
+* Create `Text.Cyp.Float.matchLitFloat`
+* Create `Text.Cyp.Float.matchLitDouble`
