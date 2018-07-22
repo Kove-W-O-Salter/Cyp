@@ -5,7 +5,7 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Float where
+module Text.Cyp.Fractional where
         --
         -- For the: `Parser` and `Stream` types.
         --

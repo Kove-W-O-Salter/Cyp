@@ -5,7 +5,7 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Int where
+module Text.Cyp.Integral where
         --
         -- For the: `Parser` and `Stream` types.
         --
