@@ -167,7 +167,6 @@ What's new:
 * Update `Haddock` documentation in `docs/`
 * Fix naming of `Text.Cyp.Char.matchAnyChar`: was `matchAntChar` is now `matchAnyChar`
 
-
 ## 0.1.1.5  --2018-July-21st
 ### Sixteenth development version.
 What's new:
