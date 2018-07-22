@@ -196,3 +196,8 @@ What's new:
 * Create `Text.Cyp.Float.matchLitFractional`
 * Create `Text.Cyp.Float.matchLitFloat`
 * Create `Text.Cyp.Float.matchLitDouble`
+
+## 0.1.1.8  --2018-July-22nd
+### Nineteenth development version.
+What's new:
+* Make comments in `Text.Cyp.Float` usable for `Haddock`
