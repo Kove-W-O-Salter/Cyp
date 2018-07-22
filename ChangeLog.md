@@ -201,3 +201,4 @@ What's new:
 ### Nineteenth development version.
 What's new:
 * Make comments in `Text.Cyp.Float` usable for `Haddock`
+* Update `Haddock` documentation
