@@ -252,20 +252,20 @@ module Text.Cyp.String where
         --
         -- | Match a `String`, of the length >= 0, of any `Char`s.
         --
-        matchAnyChars :: Parser String
-        matchAnyChars  = many matchAnyChar
+        matchChars :: Parser String
+        matchChars  = many matchChar
 
         --
         -- | Match a `String`, of the length >= 1, of any `Char`s.
         --
-        matchAnyChars1 :: Parser String
-        matchAnyChars1  = some matchAnyChar
+        matchChars1 :: Parser String
+        matchChars1  = some matchChar
 
         --
         -- | Match the `String` s.
         --
         matchLitString          :: String -> Parser String
         matchLitString []        = return []
-        matchLitString (x : xs)  = do y  <- matchChar x
-                                      ys <- matchString xs
+        matchLitString (x : xs)  = do y  <- matchLitChar x
+                                      ys <- matchLitString xs
                                       return (y : ys)

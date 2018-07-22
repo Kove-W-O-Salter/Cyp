@@ -30,13 +30,13 @@ module Text.Cyp.Bool where
         -- | Match a `Bool`.
         --
         matchBool :: Parser Bool
-        matchBool  = do sb <- matchString "True" <|>
-                              matchString "False"
+        matchBool  = do sb <- matchLitString "True" <|>
+                              matchLitString "False"
                         return (read sb)
 
         --
         -- | Match the `Bool` b.
         --
         matchLitBool   :: Bool -> Parser Bool
-        matchLitBool b  = do s <- matchString (show b)
+        matchLitBool b  = do s <- matchLitString (show b)
                              return (read s)
