@@ -17,9 +17,14 @@ module Text.Cyp where
         import Text.Cyp.Char
 
         --
-        -- For access to all `Int` `Parser`s.
+        -- For access to all `Integral` `Parser`s.
         --
-        import Text.Cyp.Int
+        import Text.Cyp.Integral
+
+        --
+        -- For access to all `Fractional` `Parser`s.
+        --
+        import Text.Cyp.Fractional
 
         --
         -- For access to all `Bool` `Parser`s.
