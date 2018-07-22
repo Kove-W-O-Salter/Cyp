@@ -22,7 +22,7 @@ module Text.Cyp.Float where
         import Text.Cyp.Char
 
         --
-        -- Match a member of the `Fractional` class.
+        -- | Match a member of the `Fractional` class.
         --
         matchFractional :: (Fractional f, Read f) => Parser f
         matchFractional  = do l <- matchDigits
@@ -32,32 +32,32 @@ module Text.Cyp.Float where
                               return $ read f
 
         --
-        -- Match a `Float`.
+        -- | Match a `Float`.
         --
         matchFloat :: Parser Float
         matchFloat  = matchFractional
 
         --
-        -- Match a `Double`.
+        -- | Match a `Double`.
         --
         matchDouble :: Parser Double
         matchDouble  = matchFractional
 
         --
-        -- Match the member of the `Fractional` class, `f`.
+        -- | Match the member of the `Fractional` class, `f`.
         --
         matchLitFractional   :: (Fractional f, Read f, Show f) => f -> Parser f
         matchLitFractional f  = do matchLitString (show f)
                                    return f
 
         --
-        -- Match the `Float`, `f`.
+        -- | Match the `Float`, `f`.
         --
         matchLitFloat :: Float -> Parser Float
         matchLitFloat  = matchLitFractional
 
         --
-        -- Match the `Double`, `d`.
+        -- | Match the `Double`, `d`.
         --
         matchLitDouble :: Double -> Parser Double
         matchLitDouble  = matchLitFractional
