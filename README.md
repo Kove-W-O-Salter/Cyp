@@ -1,7 +1,7 @@
 # Cyp
 
 ## Version
-**0.1.1.6**
+**0.1.1.7**
 
 ## Development Status
 **Ready For Use!**
