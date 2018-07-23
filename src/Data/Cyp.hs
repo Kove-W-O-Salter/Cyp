@@ -5,93 +5,151 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Data.Cyp where
+-- module Data.Cyp where
+--         -- 
+--         -- For the `Alternative` class.
+--         --
+--         import Control.Applicative
+
+--         --
+--         -- | The type of `Stream` that this Cyp will accept (A `String`).
+--         --
+--         type Stream = String
+
+--         --
+--         -- | The type of a `Parser` that is a function that takes a `Stream` and returns, `Maybe`, an `a` paired a `String.
+--         --
+--         newtype Parser a = Parser (Stream -> Maybe (a, Stream))
+
+--         --
+--         -- Making the `Parser` type a `Monad` so that `Parser`s can be chained together.
+--         --
+--         instance Monad Parser where
+--                 --
+--                 -- (>>=) :: Parser a -> (a -> Parser b) -> Parser b
+--                 --
+--                 px >>= fp = Parser (\stream0 ->
+--                         case apply px stream0 of
+--                                 Nothing              -> Nothing
+--                                 Just   (x, stream1)  ->
+--                                         apply (fp x) stream1)
+
+--         --
+--         -- Making the `Parser` type a `Functor` so that it can be made into a `Monad`.
+--         --
+--         instance Functor Parser where
+--                 --
+--                 -- fmap :: (a -> b) -> Parser a -> Parser b
+--                 --
+--                 fmap f px = px >>= \x -> return $ f x
+
+--         --
+--         -- Making the `Parser` type an `Applicative Functor` so that it can be made into a `Monad`.
+--         --
+--         instance Applicative Parser where
+--                 --
+--                 -- pure :: a -> Parser a
+--                 --
+--                 pure x = Parser (\stream0 ->
+--                         Just (x, stream0))
+
+--                 --
+--                 -- (<*>) :: Parser (a -> b) -> Parser a -> Parser b
+--                 --
+--                 pf <*> px = pf >>= \f ->
+--                         px >>= \x ->
+--                                 return $ f x
+
+--         --
+--         -- Making the `Parser` type an `Alternative` so that we can: match more than one `Parser` and
+--         -- choose between alternate `Parser`s.
+--         --
+--         instance Alternative Parser where
+--                 --
+--                 -- empty :: Parser a
+--                 --
+--                 empty = Parser (\stream0 ->
+--                         Nothing)
+
+--                 --
+--                 -- (<|>) :: Parser a -> Parser a -> Parser a
+--                 --
+--                 x <|> y = Parser (\stream0 ->
+--                         case apply x stream0 of
+--                                 Just    (a, stream1) -> Just (a, stream1)
+--                                 Nothing              ->
+--                                         apply y stream0)
+
+--                 --
+--                 -- some :: Parser a -> Parser [a]
+--                 --
+--                 some p = pure (:) <*> p <*> many p
+
+--                 --
+--                 -- many :: Parser a -> Parser [a]
+--                 --
+--                 many p = some p <|> pure []
+
+--         --
+--         -- | Remove the `Parser` p's dummy constructor.
+--         --
+--         apply            :: Parser a -> Stream -> Maybe (a, Stream)
+--         apply (Parser f)  = f
+
+-- !!!!!!!!!!!! BEGIN TESTING !!!!!!!!!! --
+
+module Data.Cyp (Parser (Parser), ($>), (|>),
+                 (<|),            (/>), (?>),
+                 convert) where
         --
-        -- For the `Alternative` class.
+        -- | The `Parser` type.
         --
-        import Control.Applicative
+        newtype Parser s a = Parser ([s] -> Maybe (a, [s]))
 
         --
-        -- | The type of `Stream` that this Cyp will accept (A `String`).
+        -- | Apply a `Parser` to a `Stream`.
         --
-        type Stream = String
+        ($>)            :: Parser s a -> [s] -> Maybe (a, [s])
+        ($>) (Parser f)  = f
 
         --
-        -- | The type of a `Parser` that is a function that takes a `Stream` and returns, `Maybe`, an `a` paired a `String.
+        -- | Run the `Parser` `px` and pass it's result to the `Parser` `fp`.
         --
-        newtype Parser a = Parser (Stream -> Maybe (a, Stream))
+        (|>)     :: Parser s a -> (a -> Parser s b) -> Parser s b
+        px |> fp  = Parser (\stream0 ->
+                do (x, stream1) <- px $> stream0
+                   fp x $> stream1)
 
         --
-        -- Making the `Parser` type a `Monad` so that `Parser`s can be chained together.
+        -- | Run the `Parser` `px` and pass it's result to the `Parser` `fp`.
         --
-        instance Monad Parser where
-                --
-                -- (>>=) :: Parser a -> (a -> Parser b) -> Parser b
-                --
-                px >>= fp = Parser (\stream0 ->
-                        case apply px stream0 of
-                                Nothing              -> Nothing
-                                Just   (x, stream1)  ->
-                                        apply (fp x) stream1)
+        (<|)     :: (a -> Parser s b) -> Parser s a -> Parser s b
+        fp <| px  = Parser (\stream0 ->
+                do (x, stream1) <- px $> stream0
+                   fp x $> stream1)
 
         --
-        -- Making the `Parser` type a `Functor` so that it can be made into a `Monad`.
+        -- | Run the `Parser` `p1` then the `Parser` `p2`.
         --
-        instance Functor Parser where
-                --
-                -- fmap :: (a -> b) -> Parser a -> Parser b
-                --
-                fmap f px = px >>= \x -> return $ f x
+        (/>)     :: Parser s a -> Parser s b -> Parser s b
+        p1 /> p2  = Parser (\stream0 ->
+                do (_, stream1) <- p1 $> stream0
+                   p2 $> stream1)
 
         --
-        -- Making the `Parser` type an `Applicative Functor` so that it can be made into a `Monad`.
+        -- | Run the `Parser` `p1` and, if it succeeds, return it's result, if it fails run the `Parser` `p2`.
         --
-        instance Applicative Parser where
-                --
-                -- pure :: a -> Parser a
-                --
-                pure x = Parser (\stream0 ->
-                        Just (x, stream0))
-
-                --
-                -- (<*>) :: Parser (a -> b) -> Parser a -> Parser b
-                --
-                pf <*> px = pf >>= \f ->
-                        px >>= \x ->
-                                return $ f x
+        (?>)     :: Parser s a -> Parser s a -> Parser s a
+        p1 ?> p2  = Parser (\stream0 ->
+                case p1 $> stream0 of
+                        Just    (x, stream1) -> Just (x, stream1)
+                        Nothing              -> p2 $> stream0)
 
         --
-        -- Making the `Parser` type an `Alternative` so that we can: match more than one `Parser` and
-        -- choose between alternate `Parser`s.
+        -- | Generate a `Parser` that when called will produce the value `x`.
         --
-        instance Alternative Parser where
-                --
-                -- empty :: Parser a
-                --
-                empty = Parser (\stream0 ->
-                        Nothing)
+        convert   :: a -> Parser s a
+        convert x  = Parser (\stream0 ->
+                Just (x, stream0))
 
-                --
-                -- (<|>) :: Parser a -> Parser a -> Parser a
-                --
-                x <|> y = Parser (\stream0 ->
-                        case apply x stream0 of
-                                Just    (a, stream1) -> Just (a, stream1)
-                                Nothing              ->
-                                        apply y stream0)
-
-                --
-                -- some :: Parser a -> Parser [a]
-                --
-                some p = pure (:) <*> p <*> many p
-
-                --
-                -- many :: Parser a -> Parser [a]
-                --
-                many p = some p <|> pure []
-
-        --
-        -- | Remove the `Parser` p's dummy constructor.
-        --
-        apply            :: Parser a -> Stream -> Maybe (a, Stream)
-        apply (Parser f)  = f
+-- !!!!!!!!!!!! BEGIN TESTING !!!!!!!!!! --
