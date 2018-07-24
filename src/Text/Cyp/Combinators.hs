@@ -5,8 +5,9 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Combinators (many,   some,      between,
-                             termBy, manySepBy, someSepBy) where
+module Text.Cyp.Combinators (many,          some,          between,
+                             termBy,        manySepBy,     someSepBy,
+                             manySepTermBy, someSepTermBy, saveWith) where
         --
         -- For the: `Parser` and `Stream` types.
         --
@@ -56,3 +57,24 @@ module Text.Cyp.Combinators (many,   some,      between,
         someSepBy p q  = (p |> \x -> convert [x]) ?> (termBy p q     |> \x  ->
                                                       manySepBy p q  |> \xs ->
                                                       convert (x : xs))
+
+        --
+        -- | Match zero or more of the `Parser` `p` separated by the `Parser` `q`, followed by `q`.
+        --
+        manySepTermBy     :: Parser s a -> Parser s b -> Parser s [a]
+        manySepTermBy p q  = many (termBy p q)
+
+        --
+        -- | Match one or more of the `Parser` `p` separated by the `Parser` `q`, followed by `q`.
+        --
+        someSepTermBy     :: Parser s a -> Parser s b -> Parser s [a]
+        someSepTermBy p q  = some (termBy p q)
+
+        --
+        -- | Attempt to match the `Parser` `p`, success resulting in `p`'s result and failure resulting in `a`.
+        --
+        saveWith     :: a -> Parser s a -> Parser s a
+        saveWith a p  = Parser (\stream0 ->
+                case p $> stream0 of
+                        Nothing              -> Just (a, stream0)
+                        Just    (x, stream1) -> Just (x, stream1))
