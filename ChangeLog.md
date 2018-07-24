@@ -266,3 +266,13 @@ What's new (breakdown):
 * Added `Data.Cyp.(?>)`
 * Removed all `Monadic` functions
 * Removed all `Alternative` functions
+
+## 0.1.2.1  --2018-July-24th
+### Twentysecond development version.
+What's new:
+* Fix `Text.Cyp.Combinators.manySepBy`
+* Fix `Text.Cyp.Combinators.someSepBy`
+* Add `Text.Cyp.Combinators.manySepTermBy`
+* Add `Text.Cyp.Combinators.someSepTermBy`
+* Add `Text.Cyp.Combinators.saveWith`
+* Clean `Cyp.cabal`
