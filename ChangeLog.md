@@ -276,3 +276,4 @@ What's new:
 * Add `Text.Cyp.Combinators.someSepTermBy`
 * Add `Text.Cyp.Combinators.saveWith`
 * Clean `Cyp.cabal`
+* Add documentation for `Text.Cyp.parse`
