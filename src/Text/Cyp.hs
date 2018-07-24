@@ -12,7 +12,7 @@ module Text.Cyp (parse, parsePedantic) where
         import Data.Cyp
 
         --
-        -- Run the `Parser` `p` on the input stream `stream`.
+        -- | Run the `Parser` `p` on the input stream `stream`.
         --
         parse          :: Parser s a -> [s] -> Maybe a
         parse p stream  = do (x, _) <- p $> stream
