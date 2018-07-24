@@ -210,3 +210,59 @@ What's new:
 * Rename `Text.Cyp.Float` as `Text.Cyp.Fractional`
 * Import `Text.Cyp.Fractional` in `Text.Cyp`
 * Update documentation for `Text.Cyp.Fractional` and `Text.Cyp.Integral`
+
+## 0.1.2.0  --2018-July-23rd
+### Twentyfirst development version.
+The core of `Cyp` (in `src/Data/Cyp.hs` or `Data.Cyp`) has been re-written
+to support generalised parsing streams (e.i. streams other than `String`).
+This allows us to write `Parser`s that parse the ouput of a tokeniser using
+`Cyp`. This re-write has some pros and cons.
+
+Pros:
+* `Cyp` is no longer `Monadic` (though it works in a very similar way)
+* Since `Cyp` is no longer `Monadic` you can't use the `do-notation` with it
+* You'll have to re-write some of your code
+
+Cons:
+* You can parse the ouput of tokenisers
+* You a more costomisable way of chaing `Parser`s
+* Your code will still be readable
+
+So I'll start by showing you the major differences that you, as a user,
+will have to wrap your head around. First off, instead of using the
+`Monadic` combinators: `(>>=)`, `(>>)` and `return` you now use:
+`(|>)`, `(/>)` and `convert`. Seccondly, instead of using the
+`Alternative` combinator `(<|>)` you use `($>)`. Thirdly the combinators
+`some` and `many` have moved to `Text.Cyp.Combinators`. Fourthly,
+instead of passing one paramater to the `Parser` type, you pass
+seccond which specifies the type of the elements of the stream.
+Fiftly, a `Parser` is now a function of the type:
+`[s] -> Maybe (a, [s])`. To give you an example of `new code` to
+`old code`, here is a `Parser` that will match the `String` `"abc"`:
+
+```haskell
+-- old parser
+parseAbc :: Parser String
+parseAbc  = do a <- matchLitChar 'a'
+               b <- matchLitChar 'b'
+               c <- matchLitChar 'c'
+               return (a : b : [c])
+
+-- new parser
+parseAbc :: Parser Char String
+parseAbc  = matchLitChar 'a'      |> \a ->
+            matchLitChar 'b'      |> \b ->
+            matchLitChar 'c'      |> \c ->
+            convert (a : b : [c])
+```
+
+What's new (breakdown):
+* Moved `Text.Cyp.someOf` to `Text.Cyp.Combinators.some`
+* Moved `Text.Cyp.manyOf` to `Text.Cyp.Combinators.many`
+* Added `Data.Cyp.($>)`
+* Added `Data.Cyp.(|>)`
+* Added `Data.Cyp.(<|)`
+* Added `Data.Cyp.(/>)`
+* Added `Data.Cyp.(?>)`
+* Removed all `Monadic` functions
+* Removed all `Alternative` functions
