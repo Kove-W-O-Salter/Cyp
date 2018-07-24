@@ -5,8 +5,8 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Combinators (many,  some,      between,
-                             sepBy, manySepBy, someSepBy) where
+module Text.Cyp.Combinators (many,   some,      between,
+                             termBy, manySepBy, someSepBy) where
         --
         -- For the: `Parser` and `Stream` types.
         --
@@ -37,24 +37,22 @@ module Text.Cyp.Combinators (many,  some,      between,
         --
         -- | Match one of the `Parser` p separated by the `Parser` q.
         --
-        sepBy     :: Parser s a -> Parser s b -> Parser s a
-        sepBy p q  = p |> \x ->
-                     q /> convert x
+        termBy     :: Parser s a -> Parser s b -> Parser s a
+        termBy p q  = p |> \x ->
+                      q /> convert x
 
         --
         -- | Match zero or more of the `Parser` p separated by the `Parser` q.
         --
         manySepBy     :: Parser s a -> Parser s b -> Parser s [a]
-        -- manySepBy p q  = many (sepBy p q)
-        manySepBy p q  = (many (sepBy p q)   |> \xs ->
-                          p                  |> \x  ->
+        manySepBy p q  = (many (termBy p q)   |> \xs ->
+                          p                   |> \x  ->
                           convert (xs ++ [x] )) ?> convert []
 
         --
         -- | Match one or more of the `Parser` p separated by the `Parser` q.
         --
         someSepBy     :: Parser s a -> Parser s b -> Parser s [a]
-        -- someSepBy p q  = some (sepBy p q)
-        someSepBy p q  = (p |> \x -> convert [x]) ?> (sepBy p q     |> \x  ->
-                                                      manySepBy p q |> \xs ->
+        someSepBy p q  = (p |> \x -> convert [x]) ?> (termBy p q     |> \x  ->
+                                                      manySepBy p q  |> \xs ->
                                                       convert (x : xs))
