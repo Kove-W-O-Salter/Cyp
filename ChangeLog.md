@@ -277,3 +277,10 @@ What's new:
 * Add `Text.Cyp.Combinators.saveWith`
 * Clean `Cyp.cabal`
 * Add documentation for `Text.Cyp.parse`
+
+## 0.1.2.2  --2018-July-25th
+### Twentysecond development version.
+What's new:
+* Tidy `Text.Cyp.Combinators`
+* Rename `Text.Cyp.Combinators.manySepBy` as `Text.Cyp.Combinators.sepBys`
+* Rename `Text.Cyp.Combinators.someSepBy` as `Text.Cyp.Combinators.sepBys1`
