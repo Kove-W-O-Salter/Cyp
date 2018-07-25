@@ -5,9 +5,9 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Combinators (many,          some,          between,
-                             termBy,        manySepBy,     someSepBy,
-                             manySepTermBy, someSepTermBy, saveWith) where
+module Text.Cyp.Combinators (many,          some,        between,
+                             termBy,        sepBys,      sepBys1,
+                             sepTermBys,    sepTermBys1, saveWith) where
         --
         -- For the: `Parser` and `Stream` types.
         --
@@ -45,30 +45,30 @@ module Text.Cyp.Combinators (many,          some,          between,
         --
         -- | Match zero or more of the `Parser` p separated by the `Parser` q.
         --
-        manySepBy     :: Parser s a -> Parser s b -> Parser s [a]
-        manySepBy p q  = (many (termBy p q)   |> \xs ->
+        sepBys     :: Parser s a -> Parser s b -> Parser s [a]
+        sepBys p q  = (many (termBy p q)   |> \xs ->
                           p                   |> \x  ->
                           convert (xs ++ [x] )) ?> convert []
 
         --
         -- | Match one or more of the `Parser` p separated by the `Parser` q.
         --
-        someSepBy     :: Parser s a -> Parser s b -> Parser s [a]
-        someSepBy p q  = (p |> \x -> convert [x]) ?> (termBy p q     |> \x  ->
-                                                      manySepBy p q  |> \xs ->
+        sepBys1     :: Parser s a -> Parser s b -> Parser s [a]
+        sepBys1 p q  = (p |> \x -> convert [x]) ?> (termBy p q     |> \x  ->
+                                                      sepBys p q   |> \xs ->
                                                       convert (x : xs))
 
         --
         -- | Match zero or more of the `Parser` `p` separated by the `Parser` `q`, followed by `q`.
         --
-        manySepTermBy     :: Parser s a -> Parser s b -> Parser s [a]
-        manySepTermBy p q  = many (termBy p q)
+        sepTermBys     :: Parser s a -> Parser s b -> Parser s [a]
+        sepTermBys p q  = many (termBy p q)
 
         --
         -- | Match one or more of the `Parser` `p` separated by the `Parser` `q`, followed by `q`.
         --
-        someSepTermBy     :: Parser s a -> Parser s b -> Parser s [a]
-        someSepTermBy p q  = some (termBy p q)
+        sepTermBys1     :: Parser s a -> Parser s b -> Parser s [a]
+        sepTermBys1 p q  = some (termBy p q)
 
         --
         -- | Attempt to match the `Parser` `p`, success resulting in `p`'s result and failure resulting in `a`.
