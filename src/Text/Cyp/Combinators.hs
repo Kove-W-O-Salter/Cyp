@@ -47,7 +47,7 @@ module Text.Cyp.Combinators (many,          some,        between,
         --
         sepBys     :: Parser s a -> Parser s b -> Parser s [a]
         sepBys p q  = (many (termBy p q)   |> \xs ->
-                          p                   |> \x  ->
+                          p                |> \x  ->
                           convert (xs ++ [x] )) ?> convert []
 
         --
