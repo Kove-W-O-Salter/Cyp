@@ -13,9 +13,9 @@ module Text.Cyp.Symbol (matchBang,        matchDoubleQuote, matchHash,
                         matchColon,       matchSemicolon,   matchLessThan,
                         matchEquals,      matchGreaterThan, matchQuestionMark,
                         matchAt,          matchOpenBlock,   matchBackwardSlash,
-                        matchHat,         matchUnderscore,  matchBackQuote,
-                        matchOpenBrace,   matchCloseBrace,  matchPipe,
-                        matchTilda) where
+                        matchCloseBlock,  matchHat,         matchUnderscore, 
+                        matchBackQuote,   matchOpenBrace,   matchCloseBrace, 
+                        matchPipe,        matchTilda) where
         --
         -- For the `Parser` foundation.
         --
@@ -169,6 +169,12 @@ module Text.Cyp.Symbol (matchBang,        matchDoubleQuote, matchHash,
         --
         matchBackwardSlash :: Parser Char Char
         matchBackwardSlash  = matchLitChar '\\'
+
+        --
+        -- Match an close block.
+        --
+        matchCloseBlock :: Parser Char Char
+        matchCloseBlock  = matchLitChar ']'
 
         --
         -- Match a hat.
