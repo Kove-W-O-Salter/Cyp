@@ -58,43 +58,43 @@ module Text.Cyp.Language () where
         -- Match the `Parser` `p` between parenthesis.
         --
         matchParens   :: Parser Char a -> Parser Char a
-        matchParans p  = between matchOpenParen p matchCloseParen
+        matchParens p  = between p matchOpenParen matchCloseParen
 
         --
         -- Match the `Parser` `p` between curly braces.
         --
         matchBraces   :: Parser Char a -> Parser Char a
-        matchBraces p  = between matchOpenBrace p matchCloseBrace
+        matchBraces p  = between p matchOpenBrace matchCloseBrace
 
         --
         -- Match the `Parser` `p` between block braces.
         --
         matchBlocks   :: Parser Char a -> Parser Char a
-        matchBlocks p  = between matchOpenBlock p matchCloseBlock
+        matchBlocks p  = between p matchOpenBlock matchCloseBlock
 
         --
         -- Match the `Parser` `p` between angle brackets.
         --
         matchAngles   :: Parser Char a -> Parser Char a
-        matchAngles p  = between matchLessThan p matchGreaterThan
+        matchAngles p  = between p matchLessThan matchGreaterThan
 
         --
         -- Match the `Parser` `p` between double quotes.
         --
         matchDoubleQuotes   :: Parser Char a -> Parser Char a
-        matchDoubleQuotes p  = between matchDoubleQuote p matchDoubleQuote
+        matchDoubleQuotes p  = between p matchDoubleQuote matchDoubleQuote
 
         --
         -- Match the `Parser` `p` between single quotes.
         --
         matchSingleQuotes   :: Parser Char a -> Parser Char a
-        matchSingleQuotes p  = between matchSingleQuote p matchSingleQuote
+        matchSingleQuotes p  = between p matchSingleQuote matchSingleQuote
 
         --
         -- Match the `Parser` `p` between back quotes.
         --
         matchBackQuotes   :: Parser Char a -> Parser Char a
-        matchBackQuotes p  = between matchBackQuote p matchBackQuote
+        matchBackQuotes p  = between p matchBackQuote matchBackQuote
 
         --
         -- Match many of the `Parser` `p` separated by commas.

@@ -14,6 +14,7 @@ module Text.Cyp.Symbol (matchBang,        matchDoubleQuote, matchHash,
                         matchEquals,      matchGreaterThan, matchQuestionMark,
                         matchAt,          matchOpenBlock,   matchBackwardSlash,
                         matchHat,         matchUnderscore,  matchBackQuote,
+                        matchOpenBrace,   matchCloseBrace,  matchPipe,
                         matchTilda) where
         --
         -- For the `Parser` foundation.
