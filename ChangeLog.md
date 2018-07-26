@@ -335,5 +335,5 @@ What's new:
 * Add `Text.Cyp.Symbol.matchOpenBrace`
 * Add `Text.Cyp.Symbol.matchCloseBrace`
 * Add `Text.Cyp.Symbol.matchPipe`
-* Add `Text.Cyp.Symbol.matchTild`
+* Add `Text.Cyp.Symbol.matchTilda`
 * Clean up `Cyp.cabal`
