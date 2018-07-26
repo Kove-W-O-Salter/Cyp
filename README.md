@@ -10,7 +10,7 @@
 To install `Cyp`
 on your system run:
 ```
-> bash script/install.hs
+> bash script/install.sh
 ```
 in the project's root
 directory.
