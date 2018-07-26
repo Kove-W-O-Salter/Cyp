@@ -5,7 +5,11 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Language () where
+module Text.Cyp.Language (matchInfixOp,      matchPrefixOp,     matchIdentifier,
+                          matchParens,       matchBraces,       matchBlocks,
+                          matchAngles,       matchDoubleQuotes, matchSingleQuotes,
+                          matchBackQuotes,   matchCommaSep,     matchCommaSep1,
+                          matchSemicolonSep, matchSemicolonSep1) where
         --
         -- For the foundation of `Parser`s.
         --

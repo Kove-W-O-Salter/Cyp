@@ -284,3 +284,41 @@ What's new:
 * Tidy `Text.Cyp.Combinators`
 * Rename `Text.Cyp.Combinators.manySepBy` as `Text.Cyp.Combinators.sepBys`
 * Rename `Text.Cyp.Combinators.someSepBy` as `Text.Cyp.Combinators.sepBys1`
+
+## 0.1.2.2  --2018-July-25th
+### Twenty-second development version.
+What's new:
+* Add `Text.Cyp.Language`
+* Add `Text.Cyp.Symbol`
+* Add `Text.Cyp.Symbol.matchBang`
+* Add `Text.Cyp.Symbol.matchDoubleQuote`
+* Add `Text.Cyp.Symbol.matchHash`
+* Add `Text.Cyp.Symbol.matchDollar`
+* Add `Text.Cyp.Symbol.matchPercent`
+* Add `Text.Cyp.Symbol.matchConjunction`
+* Add `Text.Cyp.Symbol.matchSingleQuote`
+* Add `Text.Cyp.Symbol.matchOpenParen`
+* Add `Text.Cyp.Symbol.matchCloseParen`
+* Add `Text.Cyp.Symbol.matchAsterisk`
+* Add `Text.Cyp.Symbol.matchPlus`
+* Add `Text.Cyp.Symbol.matchComma`
+* Add `Text.Cyp.Symbol.matchMinus`
+* Add `Text.Cyp.Symbol.matchPeriod`
+* Add `Text.Cyp.Symbol.matchForwardSlash`
+* Add `Text.Cyp.Symbol.matchColon`
+* Add `Text.Cyp.Symbol.matchSemicolon`
+* Add `Text.Cyp.Symbol.matchLessThan`
+* Add `Text.Cyp.Symbol.matchEquals`
+* Add `Text.Cyp.Symbol.matchGreaterThan`
+* Add `Text.Cyp.Symbol.matchQuestionMark`
+* Add `Text.Cyp.Symbol.matchAt`
+* Add `Text.Cyp.Symbol.matchOpenBlock`
+* Add `Text.Cyp.Symbol.matchBackwardSlash`
+* Add `Text.Cyp.Symbol.matchCloseBlock`
+* Add `Text.Cyp.Symbol.matchHat`
+* Add `Text.Cyp.Symbol.matchUnderscore`
+* Add `Text.Cyp.Symbol.matchBackQuote`
+* Add `Text.Cyp.Symbol.matchOpenBrace`
+* Add `Text.Cyp.Symbol.matchCloseBrace`
+* Add `Text.Cyp.Symbol.matchPipe`
+* Add `Text.Cyp.Symbol.matchTild`
