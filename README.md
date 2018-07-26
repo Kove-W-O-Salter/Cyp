@@ -12,11 +12,11 @@ is a work in progress.
 At the moment there is
 only basic documentation
 generated with **Haddock**.
-[Documentation](https://kove-w-o-salter.github.io/Cyp/index.html).
+It can be found [here](https://kove-w-o-salter.github.io/Cyp/index.html).
 
 ## Change Log
-[Here](./ChangeLog.md) is
-the change log.
+The `change log` can be
+found [here](./ChangeLog.md).
 
 ## Copyright
-See [License](./LICENSE).
+Read the [License](./LICENSE).
