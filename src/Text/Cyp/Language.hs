@@ -31,7 +31,7 @@ module Text.Cyp.Language (matchInfixOp,      matchPrefixOp,     matchIdentifier,
         import Text.Cyp.Combinators
 
         --
-        -- Match the `Parser` `po` between the `Parser` `pa`.
+        -- | Match the `Parser` `po` between the `Parser` `pa`.
         --
         matchInfixOp       :: Parser Char a -> Parser Char b -> Parser Char (b,a,b)
         matchInfixOp po pa  = pa              |> \x ->
@@ -42,7 +42,7 @@ module Text.Cyp.Language (matchInfixOp,      matchPrefixOp,     matchIdentifier,
                               convert (x,o,y)
 
         --
-        -- Match the `Parser` `po` then the `Parser` `pa`.
+        -- | Match the `Parser` `po` then the `Parser` `pa`.
         --
         matchPrefixOp       :: Parser Char a -> Parser Char b -> Parser Char (a,b)
         matchPrefixOp po pa  = po            |> \o ->
@@ -51,7 +51,7 @@ module Text.Cyp.Language (matchInfixOp,      matchPrefixOp,     matchIdentifier,
                                convert (o,x)
 
         --
-        -- Match a identifier with the initial `Char` matched by `pini` and all of the remaining `Char`s matched by `pres`
+        -- | Match a identifier with the initial `Char` matched by `pini` and all of the remaining `Char`s matched by `pres`
         --
         matchIdentifier           :: Parser Char Char -> Parser Char Char -> Parser Char String
         matchIdentifier pini pres  = pini             |> \x  ->
@@ -59,67 +59,67 @@ module Text.Cyp.Language (matchInfixOp,      matchPrefixOp,     matchIdentifier,
                                      convert (x : xs)
 
         --
-        -- Match the `Parser` `p` between parenthesis.
+        -- | Match the `Parser` `p` between parenthesis.
         --
         matchParens   :: Parser Char a -> Parser Char a
         matchParens p  = between p matchOpenParen matchCloseParen
 
         --
-        -- Match the `Parser` `p` between curly braces.
+        -- | Match the `Parser` `p` between curly braces.
         --
         matchBraces   :: Parser Char a -> Parser Char a
         matchBraces p  = between p matchOpenBrace matchCloseBrace
 
         --
-        -- Match the `Parser` `p` between block braces.
+        -- | Match the `Parser` `p` between block braces.
         --
         matchBlocks   :: Parser Char a -> Parser Char a
         matchBlocks p  = between p matchOpenBlock matchCloseBlock
 
         --
-        -- Match the `Parser` `p` between angle brackets.
+        -- | Match the `Parser` `p` between angle brackets.
         --
         matchAngles   :: Parser Char a -> Parser Char a
         matchAngles p  = between p matchLessThan matchGreaterThan
 
         --
-        -- Match the `Parser` `p` between double quotes.
+        -- | Match the `Parser` `p` between double quotes.
         --
         matchDoubleQuotes   :: Parser Char a -> Parser Char a
         matchDoubleQuotes p  = between p matchDoubleQuote matchDoubleQuote
 
         --
-        -- Match the `Parser` `p` between single quotes.
+        -- | Match the `Parser` `p` between single quotes.
         --
         matchSingleQuotes   :: Parser Char a -> Parser Char a
         matchSingleQuotes p  = between p matchSingleQuote matchSingleQuote
 
         --
-        -- Match the `Parser` `p` between back quotes.
+        -- | Match the `Parser` `p` between back quotes.
         --
         matchBackQuotes   :: Parser Char a -> Parser Char a
         matchBackQuotes p  = between p matchBackQuote matchBackQuote
 
         --
-        -- Match many of the `Parser` `p` separated by commas.
+        -- | Match many of the `Parser` `p` separated by commas.
         --
         matchCommaSep   :: Parser Char a -> Parser Char [a]
         matchCommaSep p  = sepBys p matchComma
 
         --
-        -- Match some of the `Parser` `p` separated by commas.
+        -- | Match some of the `Parser` `p` separated by commas.
         --
         matchCommaSep1   :: Parser Char a -> Parser Char [a]
         matchCommaSep1 p  = sepBys1 p matchComma
 
         --
-        -- Match many of the `Parser` `p` separated by commas.
+        -- | Match many of the `Parser` `p` separated by commas.
         --
         matchSemicolonSep   :: Parser Char a -> Parser Char [a]
         matchSemicolonSep p  = sepBys p matchSemicolon
 
         --
-        -- Match some of the `Parser` `p` separated by commas.
+        -- | Match some of the `Parser` `p` separated by commas.
         --
         matchSemicolonSep1   :: Parser Char a -> Parser Char [a]
         matchSemicolonSep1 p  = sepBys1 p matchSemicolon

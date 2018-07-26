@@ -13,8 +13,8 @@ module Text.Cyp.Symbol (matchBang,        matchDoubleQuote, matchHash,
                         matchColon,       matchSemicolon,   matchLessThan,
                         matchEquals,      matchGreaterThan, matchQuestionMark,
                         matchAt,          matchOpenBlock,   matchBackwardSlash,
-                        matchCloseBlock,  matchHat,         matchUnderscore, 
-                        matchBackQuote,   matchOpenBrace,   matchCloseBrace, 
+                        matchCloseBlock,  matchHat,         matchUnderscore,
+                        matchBackQuote,   matchOpenBrace,   matchCloseBrace,
                         matchPipe,        matchTilda) where
         --
         -- For the `Parser` foundation.
@@ -27,193 +27,193 @@ module Text.Cyp.Symbol (matchBang,        matchDoubleQuote, matchHash,
         import Text.Cyp.Char
 
         --
-        -- Match a bang.
+        -- | Match a bang.
         --
         matchBang :: Parser Char Char
         matchBang  = matchLitChar '!'
 
         --
-        -- Match an double quote.
+        -- | Match an double quote.
         --
         matchDoubleQuote :: Parser Char Char
         matchDoubleQuote  = matchLitChar '\"'
 
         --
-        -- Match a hash.
+        -- | Match a hash.
         --
         matchHash :: Parser Char Char
         matchHash  = matchLitChar '#'
 
         --
-        -- Match a dollar sign.
+        -- | Match a dollar sign.
         --
         matchDollar :: Parser Char Char
         matchDollar  = matchLitChar '$'
 
         --
-        -- Match a percent sign.
+        -- | Match a percent sign.
         --
         matchPercent :: Parser Char Char
         matchPercent  = matchLitChar '%'
 
         --
-        -- Match conjunction.
+        -- | Match conjunction.
         --
         matchConjunction :: Parser Char Char
         matchConjunction  = matchLitChar '&'
 
         --
-        -- Match single quote.
+        -- | Match single quote.
         --
         matchSingleQuote :: Parser Char Char
         matchSingleQuote  = matchLitChar '\''
 
         --
-        -- Match opening parenthesis.
+        -- | Match opening parenthesis.
         --
         matchOpenParen :: Parser Char Char
         matchOpenParen  = matchLitChar '('
 
         --
-        -- Match closing parenthesis.
+        -- | Match closing parenthesis.
         --
         matchCloseParen :: Parser Char Char
         matchCloseParen  = matchLitChar ')'
 
         --
-        -- Match an asterisk.
+        -- | Match an asterisk.
         --
         matchAsterisk :: Parser Char Char
         matchAsterisk  = matchLitChar '*'
 
         --
-        -- Match plus sign.
+        -- | Match plus sign.
         --
         matchPlus :: Parser Char Char
         matchPlus  = matchLitChar '+'
 
         --
-        -- Match a comma.
+        -- | Match a comma.
         --
         matchComma :: Parser Char Char
         matchComma  = matchLitChar ','
 
         --
-        -- Match a minus sign.
+        -- | Match a minus sign.
         --
         matchMinus :: Parser Char Char
         matchMinus  = matchLitChar '-'
 
         --
-        -- Match a period.
+        -- | Match a period.
         --
         matchPeriod :: Parser Char Char
         matchPeriod  = matchLitChar '.'
 
         --
-        -- Match a forward slash.
+        -- | Match a forward slash.
         --
         matchForwardSlash :: Parser Char Char
         matchForwardSlash  = matchLitChar '/'
 
         --
-        -- Match a colon.
+        -- | Match a colon.
         --
         matchColon :: Parser Char Char
         matchColon  = matchLitChar ':'
 
         --
-        -- Match semi-colon.
+        -- | Match semi-colon.
         --
         matchSemicolon :: Parser Char Char
         matchSemicolon  = matchLitChar ';'
 
         --
-        -- Match a less than sign.
+        -- | Match a less than sign.
         --
         matchLessThan :: Parser Char Char
         matchLessThan  = matchLitChar '<'
 
         --
-        -- Match equals.
+        -- | Match equals.
         --
         matchEquals :: Parser Char Char
         matchEquals  = matchLitChar '='
 
         --
-        -- Match an greater than sign.
+        -- | Match an greater than sign.
         --
         matchGreaterThan :: Parser Char Char
         matchGreaterThan  = matchLitChar '>'
 
         --
-        -- Match a question mark.
+        -- | Match a question mark.
         --
         matchQuestionMark :: Parser Char Char
         matchQuestionMark  = matchLitChar '?'
 
         --
-        -- Match an at sign.
+        -- | Match an at sign.
         --
         matchAt :: Parser Char Char
         matchAt  = matchLitChar '@'
 
         --
-        -- Match an open block.
+        -- | Match an open block.
         --
         matchOpenBlock :: Parser Char Char
         matchOpenBlock  = matchLitChar '['
 
         --
-        -- Match a backslash.
+        -- | Match a backslash.
         --
         matchBackwardSlash :: Parser Char Char
         matchBackwardSlash  = matchLitChar '\\'
 
         --
-        -- Match an close block.
+        -- | Match an close block.
         --
         matchCloseBlock :: Parser Char Char
         matchCloseBlock  = matchLitChar ']'
 
         --
-        -- Match a hat.
+        -- | Match a hat.
         --
         matchHat :: Parser Char Char
         matchHat  = matchLitChar '^'
 
         --
-        -- Match an underscore.
+        -- | Match an underscore.
         --
         matchUnderscore :: Parser Char Char
         matchUnderscore  = matchLitChar '_'
 
         --
-        -- Match a back quote.
+        -- | Match a back quote.
         --
         matchBackQuote :: Parser Char Char
         matchBackQuote  = matchLitChar '`'
 
         --
-        -- Match an opening curly brace.
+        -- | Match an opening curly brace.
         --
         matchOpenBrace :: Parser Char Char
         matchOpenBrace  = matchLitChar '{'
 
         --
-        -- Match a pipe.
+        -- | Match a pipe.
         --
         matchPipe :: Parser Char Char
         matchPipe  = matchLitChar '|'
 
         --
-        -- Match an closing curly brace.
+        -- | Match an closing curly brace.
         --
         matchCloseBrace :: Parser Char Char
         matchCloseBrace  = matchLitChar '}'
 
         --
-        -- Match a Tilda.
+        -- | Match a Tilda.
         --
         matchTilda :: Parser Char Char
         matchTilda  = matchLitChar '~'
