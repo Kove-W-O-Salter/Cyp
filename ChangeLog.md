@@ -285,10 +285,24 @@ What's new:
 * Rename `Text.Cyp.Combinators.manySepBy` as `Text.Cyp.Combinators.sepBys`
 * Rename `Text.Cyp.Combinators.someSepBy` as `Text.Cyp.Combinators.sepBys1`
 
-## 0.1.2.2  --2018-July-25th
-### Twenty-second development version.
+## 0.1.2.3  --2018-July-26th
+### Twenty-first development version.
 What's new:
 * Add `Text.Cyp.Language`
+* Add `Text.Cyp.Language.matchInfixOp`
+* Add `Text.Cyp.Language.matchPrefixOp`
+* Add `Text.Cyp.Language.matchIdentifier`
+* Add `Text.Cyp.Language.matchParens`
+* Add `Text.Cyp.Language.matchBraces`
+* Add `Text.Cyp.Language.matchBlocks`
+* Add `Text.Cyp.Language.matchAngles`
+* Add `Text.Cyp.Language.matchDoubleQuotes`
+* Add `Text.Cyp.Language.matchSingleQuotes`
+* Add `Text.Cyp.Language.matchBackQuotes`
+* Add `Text.Cyp.Language.matchCommaSep`
+* Add `Text.Cyp.Language.matchCommaSep1`
+* Add `Text.Cyp.Language.matchSemicolonSep`
+* Add `Text.Cyp.Language.matchSemicolonSep1`
 * Add `Text.Cyp.Symbol`
 * Add `Text.Cyp.Symbol.matchBang`
 * Add `Text.Cyp.Symbol.matchDoubleQuote`
@@ -322,3 +336,4 @@ What's new:
 * Add `Text.Cyp.Symbol.matchCloseBrace`
 * Add `Text.Cyp.Symbol.matchPipe`
 * Add `Text.Cyp.Symbol.matchTild`
+* Clean up `Cyp.cabal`
