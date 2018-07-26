@@ -8,15 +8,12 @@
 
 ## Installation
 To install `Cyp`
-on your `Linux`
-system, running
-`Bash`, run the
-following command
-in the projects root
-directory:
+on your system run:
 ```
 > bash script/install.hs
 ```
+in the project's root
+directory.
 
 ## Documentation
 **Cyp**'s documentation
