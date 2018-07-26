@@ -15,6 +15,17 @@ on your system run:
 in the project's root
 directory.
 
+## Updating
+To update your
+installation of
+`Cyp` run the
+following command,
+doing what it tells
+you to:
+```
+> bash script/update.sh
+```
+
 ## Documentation
 **Cyp**'s documentation
 is a work in progress.
