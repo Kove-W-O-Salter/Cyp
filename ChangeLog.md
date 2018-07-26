@@ -286,7 +286,7 @@ What's new:
 * Rename `Text.Cyp.Combinators.someSepBy` as `Text.Cyp.Combinators.sepBys1`
 
 ## 0.1.2.3  --2018-July-26th
-### Twenty-first development version.
+### Twenty-third development version.
 What's new:
 * Add `Text.Cyp.Language`
 * Add `Text.Cyp.Language.matchInfixOp`
