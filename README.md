@@ -6,6 +6,18 @@
 ## Development Status
 **Ready For Use!**
 
+## Installation
+To install `Cyp`
+on your `Linux`
+system, running
+`Bash`, run the
+following command
+in the projects root
+directory:
+```
+> bash script/install.hs
+```
+
 ## Documentation
 **Cyp**'s documentation
 is a work in progress.
