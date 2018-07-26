@@ -188,6 +188,24 @@ module Text.Cyp.Symbol (matchBang,        matchDoubleQuote, matchHash,
         matchBackQuote  = matchLitChar '`'
 
         --
+        -- Match an opening curly brace.
+        --
+        matchOpenBrace :: Parser Char Char
+        matchOpenBrace  = matchLitChar '{'
+
+        --
+        -- Match a pipe.
+        --
+        matchPipe :: Parser Char Char
+        matchPipe  = matchLitChar '|'
+
+        --
+        -- Match an closing curly brace.
+        --
+        matchCloseBrace :: Parser Char Char
+        matchCloseBrace  = matchLitChar '}'
+
+        --
         -- Match a Tilda.
         --
         matchTilda :: Parser Char Char
