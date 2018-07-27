@@ -5,17 +5,18 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Symbol (matchBang,        matchDoubleQuote, matchHash,
-                        matchDollar,      matchPercent,     matchConjunction,
-                        matchSingleQuote, matchOpenParen,   matchCloseParen,
-                        matchAsterisk,    matchPlus,        matchComma,
-                        matchMinus,       matchPeriod,      matchForwardSlash,
-                        matchColon,       matchSemicolon,   matchLessThan,
-                        matchEquals,      matchGreaterThan, matchQuestionMark,
-                        matchAt,          matchOpenBlock,   matchBackwardSlash,
-                        matchCloseBlock,  matchHat,         matchUnderscore,
-                        matchBackQuote,   matchOpenBrace,   matchCloseBrace,
-                        matchPipe,        matchTilda) where
+module Text.Cyp.Symbol (matchBang,                  matchDoubleQuote,          matchHash,
+                        matchDollar,                matchPercent,              matchConjunction,
+                        matchSingleQuote,           matchOpenParen,            matchCloseParen,
+                        matchAsterisk,              matchPlus,                 matchComma,
+                        matchMinus,                 matchPeriod,               matchForwardSlash,
+                        matchColon,                 matchSemicolon,            matchLessThan,
+                        matchEquals,                matchGreaterThan,          matchQuestionMark,
+                        matchAt,                    matchOpenBlock,            matchBackwardSlash,
+                        matchCloseBlock,            matchHat,                  matchUnderscore,
+                        matchBackQuote,             matchOpenBrace,            matchCloseBrace,
+                        matchPipe,                  matchTilda,                matchOpenSmartDoubleQuote,
+                        matchCloseSmartDoubleQuote, matchOpenSmartSingleQuote, matchCloseSmartSingleQuote) where
         --
         -- For the `Parser` foundation.
         --
