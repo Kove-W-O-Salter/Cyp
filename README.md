@@ -8,9 +8,10 @@
 
 ## Installation
 To install `Cyp`
-on your system run:
+on your system run,
+with `ruby` installed:
 ```
-> bash script/install.sh
+> ruby script/install.rb
 ```
 in the project's root
 directory.
