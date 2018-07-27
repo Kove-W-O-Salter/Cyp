@@ -22,6 +22,6 @@ done
 # Generating Haddock documentation for all SOURCE_FILES.
 #
 
-haddock --version                                  &&
-haddock -o $DOC_DIR --html --use-unicode $MY_FILES &&
+haddock --version                                      &&
+haddock -o $DOC_DIR --html --use-unicode $SOURCE_FILES &&
 echo "DONE"
