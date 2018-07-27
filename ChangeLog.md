@@ -337,3 +337,13 @@ What's new:
 * Add `Text.Cyp.Symbol.matchPipe`
 * Add `Text.Cyp.Symbol.matchTilda`
 * Clean up `Cyp.cabal`
+
+## 0.1.2.4  --2018-July-27th
+### Twenty-fourth development version.
+What's new:
+* Add `Text.Cyp.Symbol.matchOpenSmartDoubleQuote`
+* Add `Text.Cyp.Symbol.matchCloseSmartDoubleQuote`
+* Add `Text.Cyp.Symbol.matchOpenSmartSingleQuote`
+* Add `Text.Cyp.Symbol.matchCloseSmartSingleQuote`
+* Add `Text.Cyp.Language.matchDoubleSmartQuotes`
+* Add `Text.Cyp.Language.matchSingleSmartQuotes`
