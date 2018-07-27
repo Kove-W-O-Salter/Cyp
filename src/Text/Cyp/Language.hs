@@ -5,11 +5,12 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Language (matchInfixOp,      matchPrefixOp,     matchIdentifier,
-                          matchParens,       matchBraces,       matchBlocks,
-                          matchAngles,       matchDoubleQuotes, matchSingleQuotes,
-                          matchBackQuotes,   matchCommaSep,     matchCommaSep1,
-                          matchSemicolonSep, matchSemicolonSep1) where
+module Text.Cyp.Language (matchInfixOp,          matchPrefixOp,      matchIdentifier,
+                          matchParens,           matchBraces,        matchBlocks,
+                          matchAngles,           matchDoubleQuotes,  matchSingleQuotes,
+                          matchBackQuotes,       matchCommaSep,      matchCommaSep1,
+                          matchSemicolonSep,     matchSemicolonSep1, matchDoubleSmartQuotes,
+                          matchSingleSmartQuotes) where
         --
         -- For the foundation of `Parser`s.
         --
@@ -99,6 +100,18 @@ module Text.Cyp.Language (matchInfixOp,      matchPrefixOp,     matchIdentifier,
         --
         matchBackQuotes   :: Parser Char a -> Parser Char a
         matchBackQuotes p  = between p matchBackQuote matchBackQuote
+
+        --
+        -- | Match the `Parser` `p` between smart double quotes.
+        --
+        matchDoubleSmartQuotes   :: Parser Char a -> Parser Char a
+        matchDoubleSmartQuotes p  = between p matchOpenSmartDoubleQuote matchCloseSmartDoubleQuote
+
+        --
+        -- | Match the `Parser` `p` between smart single quotes.
+        --
+        matchSingleSmartQuotes   :: Parser Char a -> Parser Char a
+        matchSingleSmartQuotes p  = between p matchOpenSmartSingleQuote matchCloseSmartSingleQuote
 
         --
         -- | Match many of the `Parser` `p` separated by commas.
