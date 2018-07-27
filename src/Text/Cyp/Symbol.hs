@@ -217,3 +217,27 @@ module Text.Cyp.Symbol (matchBang,        matchDoubleQuote, matchHash,
         --
         matchTilda :: Parser Char Char
         matchTilda  = matchLitChar '~'
+
+        --
+        -- Match an opening smart double quote.
+        --
+        matchOpenSmartDoubleQuote :: Parser Char Char
+        matchOpenSmartDoubleQuote  = matchLitChar '“'
+
+        --
+        -- Match an closing smart double quote.
+        --
+        matchCloseSmartDoubleQuote :: Parser Char Char
+        matchCloseSmartDoubleQuote  = matchLitChar '”'
+
+        --
+        -- Match an opening smart single quote.
+        --
+        matchOpenSmartSingleQuote :: Parser Char Char
+        matchOpenSmartSingleQuote  = matchLitChar '‘'
+
+        --
+        -- Match an closing smart single quote.
+        --
+        matchCloseSmartSingleQuote :: Parser Char Char
+        matchCloseSmartSingleQuote  = matchLitChar '’'
