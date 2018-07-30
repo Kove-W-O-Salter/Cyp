@@ -5,8 +5,8 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Fractional (matchFractional,    matchFloat,    matchDouble,
-                            matchLitFractional, matchLitFloat, matchLitDouble) where
+module Text.Cyp.Fractional (fractional,    float,    double,
+                            litFractional, litFloat, litDouble) where
     --
     -- For the foundation.
     --
@@ -25,39 +25,39 @@ module Text.Cyp.Fractional (matchFractional,    matchFloat,    matchDouble,
     --
     -- | Match a member of the 'Fractional' class.
     --
-    matchFractional :: (Fractional f, Read f) => Parser String f
-    matchFractional  = do l <- matchDigits
-                          matchLitChar '.'
-                          r <- matchDigits
-                          return $ read $ l ++ "." ++ r
+    fractional :: (Fractional f, Read f) => Parser String f
+    fractional  = do l <- digits
+                     litChar '.'
+                     r <- digits
+                     return $ read $ l ++ "." ++ r
 
     --
     -- | Match a 'Float'.
     --
-    matchFloat :: Parser String Float
-    matchFloat  = matchFractional
+    float :: Parser String Float
+    float  = fractional
 
     --
     -- | Match a 'Double'.
     --
-    matchDouble :: Parser String Double
-    matchDouble  = matchFractional
+    double :: Parser String Double
+    double  = fractional
 
     --
     -- | Match the member of the 'Fractional' class, f.
     --
-    matchLitFractional   :: (Fractional f, Read f, Show f) => f -> Parser String f
-    matchLitFractional f  = do matchLitString (show f)
-                               return f
+    litFractional   :: (Fractional f, Read f, Show f) => f -> Parser String f
+    litFractional f  = do litString (show f)
+                          return f
 
     --
     -- | Match the 'Float', f.
     --
-    matchLitFloat :: Float -> Parser String Float
-    matchLitFloat  = matchLitFractional
+    litFloat :: Float -> Parser String Float
+    litFloat  = litFractional
 
     --
     -- | Match the 'Double', d.
     --
-    matchLitDouble :: Double -> Parser String Double
-    matchLitDouble  = matchLitFractional
+    litDouble :: Double -> Parser String Double
+    litDouble  = litFractional

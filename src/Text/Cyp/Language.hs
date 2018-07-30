@@ -5,12 +5,12 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Language (matchInfixOp,          matchPrefixOp,      matchIdentifier,
-                          matchParens,           matchBraces,        matchBlocks,
-                          matchAngles,           matchDoubleQuotes,  matchSingleQuotes,
-                          matchBackQuotes,       matchCommaSep,      matchCommaSep1,
-                          matchSemicolonSep,     matchSemicolonSep1, matchDoubleSmartQuotes,
-                          matchSingleSmartQuotes) where
+module Text.Cyp.Language (InfixOp,          PrefixOp,      Identifier,
+                          Parens,           Braces,        Blocks,
+                          Angles,           DoubleQuotes,  SingleQuotes,
+                          BackQuotes,       CommaSep,      CommaSep1,
+                          SemicolonSep,     SemicolonSep1, DoubleSmartQuotes,
+                          SingleSmartQuotes) where
     --
     -- For the foundation.
     --
@@ -22,7 +22,7 @@ module Text.Cyp.Language (matchInfixOp,          matchPrefixOp,      matchIdenti
     import Text.Cyp.String
 
     --
-    -- For matching symbols.
+    -- For ing symbols.
     --
     import Text.Cyp.Symbol
 
@@ -34,105 +34,105 @@ module Text.Cyp.Language (matchInfixOp,          matchPrefixOp,      matchIdenti
     --
     -- | Match the 'Parser' 'po' between the 'Parser' 'pa'.
     --
-    matchInfixOp       :: Parser String a -> Parser String b -> Parser String (b,a,b)
-    matchInfixOp po pa  = do x <- pa
-                             matchSpaces
-                             o <- po
-                             matchSpaces
-                             y <- pa
-                             return (x,o,y)
+    infixOp       :: Parser String a -> Parser String b -> Parser String (b,a,b)
+    infixOp po pa  = do x <- pa
+                        spaces
+                        o <- po
+                        spaces
+                        y <- pa
+                        return (x,o,y)
 
     --
     -- | Match the 'Parser' 'po' then the 'Parser' 'pa'.
     --
-    matchPrefixOp       :: Parser String a -> Parser String b -> Parser String (a,b)
-    matchPrefixOp po pa  = do o <- po
-                              matchSpaces
-                              x <- pa
-                              return (o,x)
+    prefixOp       :: Parser String a -> Parser String b -> Parser String (a,b)
+    prefixOp po pa  = do o <- po
+                         spaces
+                         x <- pa
+                         return (o,x)
 
     --
-    -- | Match a identifier with the initial 'Char' matched by 'pini' and all of the remaining 'Char's matched by 'pres'
+    -- | Match a identifier with the initial 'Char' ed by 'pini' and all of the remaining 'Char's ed by 'pres'
     --
-    matchIdentifier           :: Parser String Char -> Parser String Char -> Parser String String
-    matchIdentifier pini pres  = do x  <- pini
-                                    xs <- many pres
-                                    return (x : xs)
+    identifier           :: Parser String Char -> Parser String Char -> Parser String String
+    identifier pini pres  = do x  <- pini
+                               xs <- many pres
+                               return (x : xs)
 
     --
     -- | Match the 'Parser' 'p' between parenthesis.
     --
-    matchParens   :: Parser String a -> Parser String a
-    matchParens p  = between p matchOpenParen matchCloseParen
+    parens   :: Parser String a -> Parser String a
+    parens p  = between p openParen closeParen
 
     --
     -- | Match the 'Parser' 'p' between curly braces.
     --
-    matchBraces   :: Parser String a -> Parser String a
-    matchBraces p  = between p matchOpenBrace matchCloseBrace
+    braces   :: Parser String a -> Parser String a
+    braces p  = between p openBrace closeBrace
 
     --
     -- | Match the 'Parser' 'p' between block braces.
     --
-    matchBlocks   :: Parser String a -> Parser String a
-    matchBlocks p  = between p matchOpenBlock matchCloseBlock
+    blocks   :: Parser String a -> Parser String a
+    blocks p  = between p openBlock closeBlock
 
     --
     -- | Match the 'Parser' 'p' between angle brackets.
     --
-    matchAngles   :: Parser String a -> Parser String a
-    matchAngles p  = between p matchLessThan matchGreaterThan
+    angles   :: Parser String a -> Parser String a
+    angles p  = between p lessThan greaterThan
 
     --
     -- | Match the 'Parser' 'p' between double quotes.
     --
-    matchDoubleQuotes   :: Parser String a -> Parser String a
-    matchDoubleQuotes p  = between p matchDoubleQuote matchDoubleQuote
+    doubleQuotes   :: Parser String a -> Parser String a
+    doubleQuotes p  = between p doubleQuote doubleQuote
 
     --
     -- | Match the 'Parser' 'p' between single quotes.
     --
-    matchSingleQuotes   :: Parser String a -> Parser String a
-    matchSingleQuotes p  = between p matchSingleQuote matchSingleQuote
+    singleQuotes   :: Parser String a -> Parser String a
+    singleQuotes p  = between p singleQuote singleQuote
 
     --
     -- | Match the 'Parser' 'p' between back quotes.
     --
-    matchBackQuotes   :: Parser String a -> Parser String a
-    matchBackQuotes p  = between p matchBackQuote matchBackQuote
+    backQuotes   :: Parser String a -> Parser String a
+    backQuotes p  = between p backQuote backQuote
 
     --
     -- | Match the 'Parser' 'p' between smart double quotes.
     --
-    matchDoubleSmartQuotes   :: Parser String a -> Parser String a
-    matchDoubleSmartQuotes p  = between p matchOpenSmartDoubleQuote matchCloseSmartDoubleQuote
+    doubleSmartQuotes   :: Parser String a -> Parser String a
+    doubleSmartQuotes p  = between p openSmartDoubleQuote closeSmartDoubleQuote
 
     --
     -- | Match the 'Parser' 'p' between smart single quotes.
     --
-    matchSingleSmartQuotes   :: Parser String a -> Parser String a
-    matchSingleSmartQuotes p  = between p matchOpenSmartSingleQuote matchCloseSmartSingleQuote
+    singleSmartQuotes   :: Parser String a -> Parser String a
+    singleSmartQuotes p  = between p openSmartSingleQuote closeSmartSingleQuote
 
     --
     -- | Match many of the 'Parser' 'p' separated by commas.
     --
-    matchCommaSep   :: Parser String a -> Parser String [a]
-    matchCommaSep p  = sepBys p matchComma
+    commaSep   :: Parser String a -> Parser String [a]
+    commaSep p  = sepBys p comma
 
     --
     -- | Match some of the 'Parser' 'p' separated by commas.
     --
-    matchCommaSep1   :: Parser String a -> Parser String [a]
-    matchCommaSep1 p  = sepBys1 p matchComma
+    commaSep1   :: Parser String a -> Parser String [a]
+    commaSep1 p  = sepBys1 p comma
 
     --
     -- | Match many of the 'Parser' 'p' separated by commas.
     --
-    matchSemicolonSep   :: Parser String a -> Parser String [a]
-    matchSemicolonSep p  = sepBys p matchSemicolon
+    semicolonSep   :: Parser String a -> Parser String [a]
+    semicolonSep p  = sepBys p semicolon
 
     --
     -- | Match some of the 'Parser' 'p' separated by commas.
     --
-    matchSemicolonSep1   :: Parser String a -> Parser String [a]
-    matchSemicolonSep1 p  = sepBys1 p matchSemicolon
+    semicolonSep1   :: Parser String a -> Parser String [a]
+    semicolonSep1 p  = sepBys1 p semicolon

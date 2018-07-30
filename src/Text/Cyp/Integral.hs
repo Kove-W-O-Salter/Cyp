@@ -5,10 +5,10 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Integral (matchIntegral,    matchInt,      matchInt8,
-                          matchInt16,       matchInt32,    matchInt64, 
-                          matchLitIntegral, matchLitInt,   matchLitInt8,
-                          matchLitInt16,    matchLitInt32, matchLitInt64) where
+module Text.Cyp.Integral (integral,    int,      int8,
+                          int16,       int32,    int64, 
+                          litIntegral, litInt,   litInt8,
+                          litInt16,    litInt32, litInt64) where
     --
     -- For the foundations.
     --
@@ -27,73 +27,73 @@ module Text.Cyp.Integral (matchIntegral,    matchInt,      matchInt8,
     --
     -- | Match a member of the 'Integral' class.
     --
-    matchIntegral :: (Integral a, Read a) => Parser String a
-    matchIntegral  = do ds <- matchDigits
-                        return (read ds)
+    integral :: (Integral a, Read a) => Parser String a
+    integral  = do ds <- digits
+                   return (read ds)
 
     --
     -- | Match an 'Int'.
     --
-    matchInt :: Parser String Int
-    matchInt  = matchIntegral
+    int :: Parser String Int
+    int  = integral
 
     --
     -- | Match an 'Int8'.
     --
-    matchInt8 :: Parser String Int8
-    matchInt8  = matchIntegral
+    int8 :: Parser String Int8
+    int8  = integral
 
     --
     -- | Match an 'Int16'.
     --
-    matchInt16 :: Parser String Int16
-    matchInt16  = matchIntegral
+    int16 :: Parser String Int16
+    int16  = integral
 
     --
     -- | Match an 'Int32'.
     --
-    matchInt32 :: Parser String Int32
-    matchInt32  = matchIntegral
+    int32 :: Parser String Int32
+    int32  = integral
 
     --
     -- | Match an 'Int64'.
     --
-    matchInt64 :: Parser String Int64
-    matchInt64  = matchIntegral
+    int64 :: Parser String Int64
+    int64  = integral
 
     --
     -- | Match the member of the 'Integral' class, i.
     --
-    matchLitIntegral   :: (Integral a, Read a, Show a) => a -> Parser String a
-    matchLitIntegral i  = do ds <- matchLitString (show i)
+    litIntegral   :: (Integral a, Read a, Show a) => a -> Parser String a
+    litIntegral i  = do ds <- litString (show i)
                              return (read ds)
 
     --
     -- | Match the 'Int' i.
     --
-    matchLitInt :: Int -> Parser String Int
-    matchLitInt  = matchLitIntegral
+    litInt :: Int -> Parser String Int
+    litInt  = litIntegral
 
     --
     -- | Match the 'Int8' i.
     --
-    matchLitInt8 :: Int8 -> Parser String Int8
-    matchLitInt8  = matchLitIntegral
+    litInt8 :: Int8 -> Parser String Int8
+    litInt8  = litIntegral
 
     --
     -- | Match the 'Int16' i.
     --
-    matchLitInt16 :: Int16 -> Parser String Int16
-    matchLitInt16  = matchLitIntegral
+    litInt16 :: Int16 -> Parser String Int16
+    litInt16  = litIntegral
 
     --
     -- | Match the 'Int32' i.
     --
-    matchLitInt32 :: Int32 -> Parser String Int32
-    matchLitInt32  = matchLitIntegral
+    litInt32 :: Int32 -> Parser String Int32
+    litInt32  = litIntegral
 
     --
     -- | Match the 'Int64' i.
     --
-    matchLitInt64 :: Int64 -> Parser String Int64
-    matchLitInt64  = matchLitIntegral
+    litInt64 :: Int64 -> Parser String Int64
+    litInt64  = litIntegral

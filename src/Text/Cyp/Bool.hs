@@ -5,7 +5,7 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Bool (matchBool, matchLitBool) where
+module Text.Cyp.Bool (bool, litBool) where
     --
     -- For the foundation.
     --
@@ -24,13 +24,13 @@ module Text.Cyp.Bool (matchBool, matchLitBool) where
     --
     -- | Match a 'Bool'.
     --
-    matchBool :: Parser String Bool
-    matchBool  = do sb <- matchLitString "True" <|> matchLitString "False"
-                    return (read sb)
+    bool :: Parser String Bool
+    bool  = do sb <- litString "True" <|> litString "False"
+               return (read sb)
 
     --
     -- | Match the 'Bool' b.
     --
-    matchLitBool   :: Bool -> Parser String Bool
-    matchLitBool b  = do matchLitString (show b)
+    litBool   :: Bool -> Parser String Bool
+    litBool b  = do litString (show b)
                          return b

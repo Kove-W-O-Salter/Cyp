@@ -5,14 +5,14 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Char (matchPred,     matchControl,    matchSpace,
-                      matchLower,    matchUpper,      matchAlpha,
-                      matchAlphaNum, matchPrint,      matchDigit,
-                      matchOctDigit, matchHexDigit,   matchLetter,
-                      matchMark,     matchNumber,     matchPunctuation,
-                      matchSymbol,   matchSeparator,  matchAscii,
-                      matchLatin1,   matchAsciiUpper, matchAsciiLower,
-                      matchChar,     matchLitChar) where
+module Text.Cyp.Char (pred,     control,    space,
+                      lower,    upper,      alpha,
+                      alphaNum, print,      digit,
+                      octDigit, hexDigit,   letter,
+                      mark,     number,     punctuation,
+                      symbol,   separator,  ascii,
+                      latin1,   asciiUpper, asciiLower,
+                      char,     litChar) where
     --
     -- For foundation
     --
@@ -26,8 +26,8 @@ module Text.Cyp.Char (matchPred,     matchControl,    matchSpace,
     --
     -- | Match a 'Char' that satisfies the predicate 'p'.
     --
-    matchPred   :: (Char -> Bool) -> Parser String Char
-    matchPred p  = P (\stream0 ->
+    pred   :: (Char -> Bool) -> Parser String Char
+    pred p  = P (\stream0 ->
         case stream0 of
                 []            -> Nothing
                 (x : stream1) ->
@@ -38,131 +38,131 @@ module Text.Cyp.Char (matchPred,     matchControl,    matchSpace,
     --
     -- | Match a control 'Char'.
     --
-    matchControl :: Parser String Char
-    matchControl  = matchPred isControl
+    control :: Parser String Char
+    control  = pred isControl
 
     --
     -- | Match a whitespace 'Char'.
     --
-    matchSpace :: Parser String Char
-    matchSpace  = matchPred isSpace
+    space :: Parser String Char
+    space  = pred isSpace
 
     --
     -- | Match a lower case 'Char'.
     --
-    matchLower :: Parser String Char
-    matchLower  = matchPred isLower
+    lower :: Parser String Char
+    lower  = pred isLower
 
     --
     -- | Match an upper case 'Char'.
     --
-    matchUpper :: Parser String Char
-    matchUpper  = matchPred isUpper
+    upper :: Parser String Char
+    upper  = pred isUpper
 
     --
     -- | Match an alphabetic 'Char'.
     --
-    matchAlpha :: Parser String Char
-    matchAlpha  = matchPred isAlpha
+    alpha :: Parser String Char
+    alpha  = pred isAlpha
 
     --
     -- | Match an alphabetic 'Char' or a digit 'Char'.
     --
-    matchAlphaNum :: Parser String Char
-    matchAlphaNum  = matchPred isAlphaNum
+    alphaNum :: Parser String Char
+    alphaNum  = pred isAlphaNum
 
     --
     -- | Match a printable 'Char'.
     --
-    matchPrint :: Parser String Char
-    matchPrint  = matchPred isPrint
+    print :: Parser String Char
+    print  = pred isPrint
 
     --
     -- | Match an ASCII digit 'Char'.
     --
-    matchDigit :: Parser String Char
-    matchDigit  = matchPred isDigit
+    digit :: Parser String Char
+    digit  = pred isDigit
 
     --
     -- | Match an ASCII octal digit 'Char'.
     --
-    matchOctDigit :: Parser String Char
-    matchOctDigit  = matchPred isOctDigit
+    octDigit :: Parser String Char
+    octDigit  = pred isOctDigit
 
     --
     -- | Match an ASCII hexadecimal digit 'Char'.
     --
-    matchHexDigit :: Parser String Char
-    matchHexDigit  = matchPred isHexDigit
+    hexDigit :: Parser String Char
+    hexDigit  = pred isHexDigit
 
     --
     -- | Match a letter 'Char'.
     --
-    matchLetter :: Parser String Char
-    matchLetter  = matchPred isLetter
+    letter :: Parser String Char
+    letter  = pred isLetter
 
     --
     -- | Match a mark 'Char'.
     --
-    matchMark :: Parser String Char
-    matchMark  = matchPred isMark
+    mark :: Parser String Char
+    mark  = pred isMark
 
     --
     -- | Match a number 'Char'.
     --
-    matchNumber :: Parser String Char
-    matchNumber  = matchPred isNumber
+    number :: Parser String Char
+    number  = pred isNumber
 
     --
     -- | Match a punctuation symbol 'Char'.
     --
-    matchPunctuation :: Parser String Char
-    matchPunctuation  = matchPred isPunctuation
+    punctuation :: Parser String Char
+    punctuation  = pred isPunctuation
 
     --
     -- | Match a symbol 'Char'.
     --
-    matchSymbol :: Parser String Char
-    matchSymbol  = matchPred isSymbol
+    symbol :: Parser String Char
+    symbol  = pred isSymbol
 
     --
     -- | Match a separator 'Char'.
     --
-    matchSeparator :: Parser String Char
-    matchSeparator  = matchPred isSeparator
+    separator :: Parser String Char
+    separator  = pred isSeparator
 
     --
     -- | Match an ASCII 'Char'
     --
-    matchAscii :: Parser String Char
-    matchAscii  = matchPred isAscii
+    ascii :: Parser String Char
+    ascii  = pred isAscii
 
     --
     -- | Match a Latin-1 'Char'.
     --
-    matchLatin1 :: Parser String Char
-    matchLatin1  = matchPred isLatin1
+    latin1 :: Parser String Char
+    latin1  = pred isLatin1
 
     --
     -- | Match an upper case ASCII 'Char'.
     --
-    matchAsciiUpper :: Parser String Char
-    matchAsciiUpper  = matchPred isAsciiUpper
+    asciiUpper :: Parser String Char
+    asciiUpper  = pred isAsciiUpper
 
     --
     -- | Match a lower case ASCII 'Char'.
     --
-    matchAsciiLower :: Parser String Char
-    matchAsciiLower  = matchPred isAsciiLower
+    asciiLower :: Parser String Char
+    asciiLower  = pred isAsciiLower
 
     --
     -- | Match any 'Char'.
     --
-    matchChar :: Parser String Char
-    matchChar  = matchPred (const True)
+    char :: Parser String Char
+    char  = pred (const True)
 
     --
     -- | Match the 'Char' c.
     --
-    matchLitChar   :: Char -> Parser String Char
-    matchLitChar c  = matchPred (==c)
+    litChar   :: Char -> Parser String Char
+    litChar c  = pred (==c)
