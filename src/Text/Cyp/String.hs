@@ -30,11 +30,6 @@ module Text.Cyp.String (matchControls,     matchControls1,     matchSpaces,
     import Text.Cyp.Char
 
     --
-    -- For `many` and `some`.
-    --
-    import Text.Cyp.Combinators
-
-    --
     -- | Match a 'String', of a length >= 0, of control 'Char's.
     --
     matchControls :: Parser String String
