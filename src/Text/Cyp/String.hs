@@ -9,7 +9,7 @@ module Text.Cyp.String (controls,     controls1,     spaces,
                         spaces1,      lowers,        lowers1, 
                         uppers,       uppers1,       alphas, 
                         alphas1,      alphaNums,     alphaNums1, 
-                        prints,       prints1,       digits, 
+                        printables,       printables1,       digits, 
                         digits1,      octDigits,     octDigits1,
                         hexDigits,    hexDigits1,    letters,
                         letters1,     marks,         marks1,
@@ -102,16 +102,16 @@ module Text.Cyp.String (controls,     controls1,     spaces,
     alphaNums1  = many alphaNum
 
     --
-    -- | Match a 'String', of a length >= 0, of printable 'Char's.
+    -- | Match a 'String', of a length >= 0, of printableable 'Char's.
     --
-    prints :: Parser String String
-    prints  = many print
+    printables :: Parser String String
+    printables  = many printable
 
     --
-    -- | Match a 'String', of a length >= 1, of printable 'Char's.
+    -- | Match a 'String', of a length >= 1, of printableable 'Char's.
     --
-    prints1 :: Parser String String
-    prints1  = some print
+    printables1 :: Parser String String
+    printables1  = some printable
 
     --
     -- | Match a 'String', of a length >= 0, of ASCII digit 'Char's.

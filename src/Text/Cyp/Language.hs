@@ -5,12 +5,12 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Language (InfixOp,          PrefixOp,      Identifier,
-                          Parens,           Braces,        Blocks,
-                          Angles,           DoubleQuotes,  SingleQuotes,
-                          BackQuotes,       CommaSep,      CommaSep1,
-                          SemicolonSep,     SemicolonSep1, DoubleSmartQuotes,
-                          SingleSmartQuotes) where
+module Text.Cyp.Language (infixOp,          prefixOp,      identifier,
+                          parens,           braces,        blocks,
+                          angles,           doubleQuotes,  singleQuotes,
+                          backQuotes,       commaSep,      commaSep1,
+                          semicolonSep,     semicolonSep1, doubleSmartQuotes,
+                          singleSmartQuotes) where
     --
     -- For the foundation.
     --

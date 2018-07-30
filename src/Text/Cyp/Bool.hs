@@ -33,4 +33,4 @@ module Text.Cyp.Bool (bool, litBool) where
     --
     litBool   :: Bool -> Parser String Bool
     litBool b  = do litString (show b)
-                         return b
+                    return b

@@ -5,9 +5,9 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Char (pred,     control,    space,
+module Text.Cyp.Char (satisfy,  control,    space,
                       lower,    upper,      alpha,
-                      alphaNum, print,      digit,
+                      alphaNum, printable,  digit,
                       octDigit, hexDigit,   letter,
                       mark,     number,     punctuation,
                       symbol,   separator,  ascii,
@@ -19,15 +19,15 @@ module Text.Cyp.Char (pred,     control,    space,
     import Data.Cyp
 
     --
-    -- For 'Char' predicates.
+    -- For 'Char' satisfyicates.
     --
     import Data.Char
 
     --
-    -- | Match a 'Char' that satisfies the predicate 'p'.
+    -- | Match a 'Char' that satisfies the satisfyicate 'p'.
     --
-    pred   :: (Char -> Bool) -> Parser String Char
-    pred p  = P (\stream0 ->
+    satisfy   :: (Char -> Bool) -> Parser String Char
+    satisfy p  = P (\stream0 ->
         case stream0 of
                 []            -> Nothing
                 (x : stream1) ->
@@ -39,130 +39,130 @@ module Text.Cyp.Char (pred,     control,    space,
     -- | Match a control 'Char'.
     --
     control :: Parser String Char
-    control  = pred isControl
+    control  = satisfy isControl
 
     --
     -- | Match a whitespace 'Char'.
     --
     space :: Parser String Char
-    space  = pred isSpace
+    space  = satisfy isSpace
 
     --
     -- | Match a lower case 'Char'.
     --
     lower :: Parser String Char
-    lower  = pred isLower
+    lower  = satisfy isLower
 
     --
     -- | Match an upper case 'Char'.
     --
     upper :: Parser String Char
-    upper  = pred isUpper
+    upper  = satisfy isUpper
 
     --
     -- | Match an alphabetic 'Char'.
     --
     alpha :: Parser String Char
-    alpha  = pred isAlpha
+    alpha  = satisfy isAlpha
 
     --
     -- | Match an alphabetic 'Char' or a digit 'Char'.
     --
     alphaNum :: Parser String Char
-    alphaNum  = pred isAlphaNum
+    alphaNum  = satisfy isAlphaNum
 
     --
-    -- | Match a printable 'Char'.
+    -- | Match a printableable 'Char'.
     --
-    print :: Parser String Char
-    print  = pred isPrint
+    printable :: Parser String Char
+    printable  = satisfy isPrint
 
     --
     -- | Match an ASCII digit 'Char'.
     --
     digit :: Parser String Char
-    digit  = pred isDigit
+    digit  = satisfy isDigit
 
     --
     -- | Match an ASCII octal digit 'Char'.
     --
     octDigit :: Parser String Char
-    octDigit  = pred isOctDigit
+    octDigit  = satisfy isOctDigit
 
     --
     -- | Match an ASCII hexadecimal digit 'Char'.
     --
     hexDigit :: Parser String Char
-    hexDigit  = pred isHexDigit
+    hexDigit  = satisfy isHexDigit
 
     --
     -- | Match a letter 'Char'.
     --
     letter :: Parser String Char
-    letter  = pred isLetter
+    letter  = satisfy isLetter
 
     --
     -- | Match a mark 'Char'.
     --
     mark :: Parser String Char
-    mark  = pred isMark
+    mark  = satisfy isMark
 
     --
     -- | Match a number 'Char'.
     --
     number :: Parser String Char
-    number  = pred isNumber
+    number  = satisfy isNumber
 
     --
     -- | Match a punctuation symbol 'Char'.
     --
     punctuation :: Parser String Char
-    punctuation  = pred isPunctuation
+    punctuation  = satisfy isPunctuation
 
     --
     -- | Match a symbol 'Char'.
     --
     symbol :: Parser String Char
-    symbol  = pred isSymbol
+    symbol  = satisfy isSymbol
 
     --
     -- | Match a separator 'Char'.
     --
     separator :: Parser String Char
-    separator  = pred isSeparator
+    separator  = satisfy isSeparator
 
     --
     -- | Match an ASCII 'Char'
     --
     ascii :: Parser String Char
-    ascii  = pred isAscii
+    ascii  = satisfy isAscii
 
     --
     -- | Match a Latin-1 'Char'.
     --
     latin1 :: Parser String Char
-    latin1  = pred isLatin1
+    latin1  = satisfy isLatin1
 
     --
     -- | Match an upper case ASCII 'Char'.
     --
     asciiUpper :: Parser String Char
-    asciiUpper  = pred isAsciiUpper
+    asciiUpper  = satisfy isAsciiUpper
 
     --
     -- | Match a lower case ASCII 'Char'.
     --
     asciiLower :: Parser String Char
-    asciiLower  = pred isAsciiLower
+    asciiLower  = satisfy isAsciiLower
 
     --
     -- | Match any 'Char'.
     --
     char :: Parser String Char
-    char  = pred (const True)
+    char  = satisfy (const True)
 
     --
     -- | Match the 'Char' c.
     --
     litChar   :: Char -> Parser String Char
-    litChar c  = pred (==c)
+    litChar c  = satisfy (==c)

@@ -97,7 +97,7 @@ module Text.Cyp.Symbol (bang,                  doubleQuote,          hash,
     -- | Match a comma.
     --
     comma :: Parser String Char
-    comma  = LitChar ','
+    comma  = litChar ','
 
     --
     -- | Match a minus sign.
@@ -121,7 +121,7 @@ module Text.Cyp.Symbol (bang,                  doubleQuote,          hash,
     -- | Match a colon.
     --
     colon :: Parser String Char
-    colon  = LitChar ':'
+    colon  = litChar ':'
 
     --
     -- | Match semi-colon.

@@ -66,7 +66,7 @@ module Text.Cyp.Integral (integral,    int,      int8,
     --
     litIntegral   :: (Integral a, Read a, Show a) => a -> Parser String a
     litIntegral i  = do ds <- litString (show i)
-                             return (read ds)
+                        return (read ds)
 
     --
     -- | Match the 'Int' i.
