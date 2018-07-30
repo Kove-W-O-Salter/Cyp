@@ -18,12 +18,12 @@ module Text.Cyp.Symbol (matchBang,                  matchDoubleQuote,          m
                         matchPipe,                  matchTilda,                matchOpenSmartDoubleQuote,
                         matchCloseSmartDoubleQuote, matchOpenSmartSingleQuote, matchCloseSmartSingleQuote) where
     --
-    -- For the `Parser` foundation.
+    -- For the 'Parser' foundation.
     --
     import Data.Cyp
 
     --
-    -- For `Char` `Parser`s.
+    -- For 'Char' 'Parser's.
     --
     import Text.Cyp.Char
 

@@ -20,12 +20,12 @@ module Text.Cyp.String (matchControls,     matchControls1,     matchSpaces,
                         matchAsciiLowers,  matchAsciiLowers1,  matchChars,
                         matchChars1,       matchLitString) where
     --
-    -- For the: `Parser` and `Stream` data types.
+    -- For the: 'Parser' and 'Stream' data types.
     --
     import Data.Cyp
 
     --
-    -- For the basic 'Char' `Parser`s.
+    -- For the basic 'Char' 'Parser's.
     --
     import Text.Cyp.Char
 

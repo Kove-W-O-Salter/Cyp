@@ -7,12 +7,12 @@
 
 module Text.Cyp.Bool (matchBool, matchLitBool) where
     --
-    -- For the: `Parser` and `Stream` types.
+    -- For the foundation.
     --
     import Data.Cyp
 
     --
-    -- For `matchString`.
+    -- For 'matchString'.
     --
     import Text.Cyp.String
 
@@ -22,14 +22,14 @@ module Text.Cyp.Bool (matchBool, matchLitBool) where
     import Control.Applicative
 
     --
-    -- | Match a `Bool`.
+    -- | Match a 'Bool'.
     --
     matchBool :: Parser String Bool
     matchBool  = do sb <- matchLitString "True" <|> matchLitString "False"
                     return (read sb)
 
     --
-    -- | Match the `Bool` b.
+    -- | Match the 'Bool' b.
     --
     matchLitBool   :: Bool -> Parser String Bool
     matchLitBool b  = do matchLitString (show b)
