@@ -5,8 +5,8 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Data.Cyp (Parser, empty, (<|>),
-                 some,   many,  apply) where
+module Data.Cyp (Parser (P), empty, (<|>),
+                 some,       many,  apply) where
     --
     -- For 'Alternative'.
     --
