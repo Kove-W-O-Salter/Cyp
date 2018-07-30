@@ -24,7 +24,7 @@ following command,
 doing what it tells
 you to:
 ```
-> bash script/update.sh
+> ruby script/update.rb
 ```
 
 ## Documentation
