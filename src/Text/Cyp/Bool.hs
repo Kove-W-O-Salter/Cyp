@@ -6,26 +6,31 @@
 --
 
 module Text.Cyp.Bool (matchBool, matchLitBool) where
-        --
-        -- For the: `Parser` and `Stream` types.
-        --
-        import Data.Cyp
+    --
+    -- For the: `Parser` and `Stream` types.
+    --
+    import Data.Cyp
 
-        --
-        -- For `matchString`.
-        --
-        import Text.Cyp.String
+    --
+    -- For `matchString`.
+    --
+    import Text.Cyp.String
 
-        --
-        -- | Match a `Bool`.
-        --
-        matchBool :: Parser Char Bool
-        matchBool  = matchLitString "True" ?> matchLitString "False" |> \sb ->
-                     convert (read sb)
+    --
+    -- For 'Alternative'.
+    --
+    import Control.Applicative
 
-        --
-        -- | Match the `Bool` b.
-        --
-        matchLitBool   :: Bool -> Parser Char Bool
-        matchLitBool b  = matchLitString (show b) />
-                          convert b
+    --
+    -- | Match a `Bool`.
+    --
+    matchBool :: Parser String Bool
+    matchBool  = do sb <- matchLitString "True" <|> matchLitString "False"
+                    return (read sb)
+
+    --
+    -- | Match the `Bool` b.
+    --
+    matchLitBool   :: Bool -> Parser String Bool
+    matchLitBool b  = do matchLitString (show b)
+                         return b
