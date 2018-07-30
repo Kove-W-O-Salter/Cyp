@@ -347,3 +347,9 @@ What's new:
 * Add `Text.Cyp.Symbol.matchCloseSmartSingleQuote`
 * Add `Text.Cyp.Language.matchDoubleSmartQuotes`
 * Add `Text.Cyp.Language.matchSingleSmartQuotes`
+
+## 0.1.2.5  --2018-July-30th
+### Twenty-fift development version.
+What's new:
+* Migrate back to `Monad`ic code
+* Convert all build management scripts to `Ruby`
