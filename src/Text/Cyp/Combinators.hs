@@ -5,19 +5,47 @@
 --   A copy of said License is provided in the root directory of this project (LICENSE).
 --
 
-module Text.Cyp.Combinators (many,          some,          (<|>),
-                             empty,         between,       termBy,
-                             sepBys,        sepBys1,       sepTermBys,
-                             sepTermBys1,   saveWith) where
+module Text.Cyp.Combinators (switch,  anything,   many,
+                             some,    (<|>),      empty,
+                             between, termBy,     sepBys,
+                             sepBys1, sepTermBys, sepTermBys1,
+                             saveWith) where
     --
     -- For the: 'Parser' and 'Stream' types.
     --
     import Data.Cyp
 
     --
+    -- For 'Char' 'Parser's.
+    --
+    import Text.Cyp.Char
+
+    --
     -- For 'Alternative' functions.
     --
     import Control.Applicative
+
+    --
+    -- | Take a list of pairs of conditionals and parser and execute
+    --   the first parse who's paired conditioanl, when applied to
+    --   the next 'Char' in the strea, succeeds.
+    --
+    switch             :: [(Char -> Bool, Parser String a)] -> Parser String a
+    switch []           = empty
+    switch ((c, p):cs)  = P (\stream0 ->
+        case stream0 of
+            []            -> Nothing
+            (x : stream1) ->
+                if c x then
+                    apply p stream1
+                else
+                    apply (switch cs) stream0)
+
+    --
+    -- | Alwasy return true.
+    --
+    anything :: Char -> Bool
+    anything  = const True
 
     --
     -- | Match the 'Parser' x between the 'Parser's x and y.
