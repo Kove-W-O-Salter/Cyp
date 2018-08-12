@@ -1,2 +1,3 @@
 language: haskell
+before_install: sudo apt-get install haskell-platform ruby
 install: ruby script/build-test.rb
