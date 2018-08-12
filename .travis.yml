@@ -1,1 +1,2 @@
 language: haskell
+install: ruby script/build-test.rb
