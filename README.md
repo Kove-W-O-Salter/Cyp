@@ -6,6 +6,9 @@
 ## Development Status
 **Ready For Use!**
 
+## Build Status
+[![Build Status](https://travis-ci.com/Kove-W-O-Salter/Cyp.svg?branch=master)](https://travis-ci.com/Kove-W-O-Salter/Cyp)
+
 ## Installation
 To install `Cyp`
 on your system run,
