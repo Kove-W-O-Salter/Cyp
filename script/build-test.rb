@@ -1,4 +1,4 @@
-#!/bin/ruby
+#!/usr/bin/env ruby
 
 # Compile then clean the code base.
 
